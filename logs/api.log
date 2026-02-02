@@ -1,0 +1,956 @@
+INFO:     Will watch for changes in these directories: ['/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [34506] using WatchFiles
+INFO:     Started server process [34510]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [34510]
+INFO:     Started server process [36368]
+INFO:     Waiting for application startup.
+2026-02-02 13:00:20 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:00:20 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:00:20 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+INFO:     127.0.0.1:64075 - "POST /api/v1/auth/login/access-token HTTP/1.1" 422 Unprocessable Entity
+2026-02-02 13:23:32 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:23:32 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:64267 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 13:24:33 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+INFO:     127.0.0.1:64289 - "GET /api/v1/sites/ HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'sites.username' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/site.py", line 31, in get_sites
+    .all()
+     ^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'sites.username' in 'field list'")
+[SQL: SELECT sites.id AS sites_id, sites.name AS sites_name, sites.url AS sites_url, sites.username AS sites_username, sites.application_password AS sites_application_password, sites.is_active AS sites_is_active, sites.last_synced_at AS sites_last_synced_at, sites.contact_form_id AS sites_contact_form_id, sites.created_at AS sites_created_at, sites.updated_at AS sites_updated_at 
+FROM sites 
+WHERE sites.is_active IS true 
+ LIMIT %(param_1)s, %(param_2)s]
+[parameters: {'param_1': 0, 'param_2': 100}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-02 13:24:39 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+INFO:     127.0.0.1:64291 - "GET /api/v1/sites/ HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'sites.username' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/site.py", line 31, in get_sites
+    .all()
+     ^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'sites.username' in 'field list'")
+[SQL: SELECT sites.id AS sites_id, sites.name AS sites_name, sites.url AS sites_url, sites.username AS sites_username, sites.application_password AS sites_application_password, sites.is_active AS sites_is_active, sites.last_synced_at AS sites_last_synced_at, sites.contact_form_id AS sites_contact_form_id, sites.created_at AS sites_created_at, sites.updated_at AS sites_updated_at 
+FROM sites 
+WHERE sites.is_active IS true 
+ LIMIT %(param_1)s, %(param_2)s]
+[parameters: {'param_1': 0, 'param_2': 100}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-02 13:28:17 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+INFO:     127.0.0.1:64393 - "GET /api/v1/sites/ HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'sites.username' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/site.py", line 31, in get_sites
+    .all()
+     ^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2693, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2847, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2308, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2190, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'sites.username' in 'field list'")
+[SQL: SELECT sites.id AS sites_id, sites.name AS sites_name, sites.url AS sites_url, sites.username AS sites_username, sites.application_password AS sites_application_password, sites.is_active AS sites_is_active, sites.last_synced_at AS sites_last_synced_at, sites.contact_form_id AS sites_contact_form_id, sites.created_at AS sites_created_at, sites.updated_at AS sites_updated_at 
+FROM sites 
+WHERE sites.is_active IS true 
+ LIMIT %(param_1)s, %(param_2)s]
+[parameters: {'param_1': 0, 'param_2': 100}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-02-02 13:31:39 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+INFO:     127.0.0.1:64473 - "GET /api/v1/sites/ HTTP/1.1" 200 OK
+2026-02-02 13:32:02 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+INFO:     127.0.0.1:64486 - "GET /api/v1/sites/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64539 - "POST /api/v1/sites/ HTTP/1.1" 403 Forbidden
+2026-02-02 13:36:08 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:36:08 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:64566 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 13:36:16 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:36:17 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:64570 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 13:36:21 [INFO] app.api.v1.site: Creating new site with name=My WP Site, url=https://alcatraz-island.com, username=Deepak
+INFO:     127.0.0.1:64573 - "POST /api/v1/sites/ HTTP/1.1" 201 Created
+2026-02-02 13:36:54 [INFO] app.api.v1.sync: Manual sync started for site 1
+2026-02-02 13:36:54 [INFO] app.api.v1.sync: Syncing site 1
+2026-02-02 13:36:55 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+2026-02-02 13:36:55 [WARNING] app.api.v1.sync: Redis error reading form cache for site 1
+2026-02-02 13:36:55 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/forms "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:64582 - "POST /api/v1/sync/1 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/sync.py", line 246, in sync_single_site
+    return sync_site_submissions(db, site, redis_client)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/sync.py", line 86, in sync_site_submissions
+    title = form.get("title", "").lower()
+            ^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+WARNING:  WatchFiles detected changes in 'app/api/v1/sync.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36368]
+INFO:     Started server process [65009]
+INFO:     Waiting for application startup.
+2026-02-02 13:38:12 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:38:12 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:38:12 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/v1/sync.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65009]
+INFO:     Started server process [65141]
+INFO:     Waiting for application startup.
+2026-02-02 13:38:19 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:38:19 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:38:19 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65141]
+INFO:     Started server process [65258]
+INFO:     Waiting for application startup.
+2026-02-02 13:38:26 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:38:26 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:38:26 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65258]
+INFO:     Started server process [65275]
+INFO:     Waiting for application startup.
+2026-02-02 13:38:31 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:38:31 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:38:31 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+2026-02-02 13:38:51 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:38:51 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:64690 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 13:38:51 [INFO] app.api.v1.sync: Manual sync started for site 1
+2026-02-02 13:38:51 [INFO] app.api.v1.sync: Syncing site 1
+2026-02-02 13:38:52 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+2026-02-02 13:38:52 [WARNING] app.api.v1.sync: Redis error reading form cache for site 1
+2026-02-02 13:38:52 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/forms "HTTP/1.1 200 OK"
+2026-02-02 13:38:52 [WARNING] app.api.v1.sync: Redis error setting form cache for site 1
+2026-02-02 13:38:53 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/forms/1/entries?page=1&per_page=50 "HTTP/1.1 404 Not Found"
+2026-02-02 13:38:53 [WARNING] app.api.v1.sync: Failed to fetch entries for form 1: HTTP 404
+2026-02-02 13:38:53 [INFO] app.api.v1.sync: Sync completed for site 1, synced 0 submissions
+INFO:     127.0.0.1:64692 - "POST /api/v1/sync/1 HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/services/wordpress.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [65275]
+INFO:     Started server process [66511]
+INFO:     Waiting for application startup.
+2026-02-02 13:39:54 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:39:54 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:39:54 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+2026-02-02 13:40:38 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:40:38 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:64767 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 13:40:38 [INFO] app.api.v1.sync: Manual sync started for site 1
+2026-02-02 13:40:38 [INFO] app.api.v1.sync: Syncing site 1
+2026-02-02 13:40:39 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+2026-02-02 13:40:39 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+2026-02-02 13:40:39 [INFO] app.api.v1.sync: Sync completed for site 1, synced 1 submissions
+INFO:     127.0.0.1:64769 - "POST /api/v1/sync/1 HTTP/1.1" 200 OK
+2026-02-02 13:40:55 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:40:55 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:64781 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 13:40:55 [INFO] app.api.v1.submission: Fetched 1 submissions
+INFO:     127.0.0.1:64783 - "GET /api/v1/submissions/?site_id=1 HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/services/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [66511]
+INFO:     Started server process [18818]
+INFO:     Waiting for application startup.
+2026-02-02 15:02:12 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:02:13 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:02:13 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/services/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [18818]
+INFO:     Started server process [19732]
+INFO:     Waiting for application startup.
+2026-02-02 15:03:37 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:03:37 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:03:37 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/models/email_thread.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [19732]
+INFO:     Started server process [28576]
+INFO:     Waiting for application startup.
+2026-02-02 15:18:28 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:18:28 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:18:28 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/services/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [28576]
+INFO:     Started server process [29133]
+INFO:     Waiting for application startup.
+2026-02-02 15:19:22 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:19:22 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:19:22 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/schemas/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [29133]
+INFO:     Started server process [29250]
+INFO:     Waiting for application startup.
+2026-02-02 15:19:30 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:19:30 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:19:30 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/schemas/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [29250]
+INFO:     Started server process [29685]
+INFO:     Waiting for application startup.
+2026-02-02 15:20:19 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:20:19 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:20:19 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/schemas/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [29685]
+INFO:     Started server process [30327]
+INFO:     Waiting for application startup.
+2026-02-02 15:21:14 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:21:14 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:21:14 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/v1/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [30327]
+INFO:     Started server process [30660]
+INFO:     Waiting for application startup.
+2026-02-02 15:21:49 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:21:49 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:21:49 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/v1/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [30660]
+INFO:     Started server process [30984]
+INFO:     Waiting for application startup.
+2026-02-02 15:22:26 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:22:26 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:22:26 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/v1/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [30984]
+INFO:     Started server process [32055]
+INFO:     Waiting for application startup.
+2026-02-02 15:24:06 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:24:06 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:24:06 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/api/v1/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32055]
+Process SpawnProcess-18:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/server.py", line 68, in serve
+    config.load()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/config.py", line 467, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/importer.py", line 24, in import_from_string
+    raise exc from None
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/importer.py", line 21, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/main.py", line 13, in <module>
+    from app.api.v1 import api_router
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/__init__.py", line 3, in <module>
+    from app.api.v1 import auth, email, site, submission, sync, diagnostics, contact
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/email.py", line 2, in <module>
+    from backend.app.services.email import send_email
+ModuleNotFoundError: No module named 'backend'
+WARNING:  WatchFiles detected changes in 'app/api/v1/email.py'. Reloading...
+Process SpawnProcess-19:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/server.py", line 68, in serve
+    config.load()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/config.py", line 467, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/importer.py", line 24, in import_from_string
+    raise exc from None
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/importer.py", line 21, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/main.py", line 13, in <module>
+    from app.api.v1 import api_router
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/__init__.py", line 3, in <module>
+    from app.api.v1 import auth, email, site, submission, sync, diagnostics, contact
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/email.py", line 2, in <module>
+    from backend.app.services.email import send_email
+ModuleNotFoundError: No module named 'backend'
+WARNING:  WatchFiles detected changes in 'app/core/database.py'. Reloading...
+Process SpawnProcess-20:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/_subprocess.py", line 76, in subprocess_started
+    target(sockets=sockets)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/server.py", line 61, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/server.py", line 68, in serve
+    config.load()
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/config.py", line 467, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/importer.py", line 24, in import_from_string
+    raise exc from None
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/uvicorn/importer.py", line 21, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/main.py", line 13, in <module>
+    from app.api.v1 import api_router
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/__init__.py", line 3, in <module>
+    from app.api.v1 import auth, email, site, submission, sync, diagnostics, contact
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/email.py", line 2, in <module>
+    from backend.app.services.email import send_email
+ModuleNotFoundError: No module named 'backend'
+WARNING:  WatchFiles detected changes in 'app/api/v1/email.py'. Reloading...
+INFO:     Started server process [39319]
+INFO:     Waiting for application startup.
+2026-02-02 15:35:32 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:35:32 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:35:33 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/models/email_thread.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39319]
+INFO:     Started server process [39550]
+INFO:     Waiting for application startup.
+2026-02-02 15:35:44 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:35:44 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:35:44 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/core/database.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39550]
+INFO:     Started server process [39955]
+INFO:     Waiting for application startup.
+2026-02-02 15:36:21 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:36:21 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:36:21 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/schemas/email.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39955]
+INFO:     Started server process [41466]
+INFO:     Waiting for application startup.
+2026-02-02 15:38:35 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:38:35 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:38:35 [INFO] app.main: Dispatched initial sync task to Celery
+INFO:     Application startup complete.
+2026-02-02 15:40:54 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 15:40:55 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:52657 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 15:40:57 [ERROR] app.api.v1.email: SMTP error sending email to deepak@firestorm-internet.com for submission 1
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/email.py", line 65, in create_email
+    smtp_message_id = send_email(
+                      ^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/services/email.py", line 41, in send_email
+    server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 750, in login
+    raise last_exception
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2a88b426a64sm137796575ad.45 - gsmtp')
+INFO:     127.0.0.1:52659 - "POST /api/v1/emails/ HTTP/1.1" 502 Bad Gateway
+2026-02-02 15:41:05 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 15:41:05 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:52670 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 15:41:05 [INFO] app.api.v1.email: Fetched 1 emails for submission 1
+INFO:     127.0.0.1:52672 - "GET /api/v1/emails/?submission_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52710 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52710 - "GET /api/v1/openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52716 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52716 - "GET /api/v1/openapi.json HTTP/1.1" 200 OK
+2026-02-02 15:44:18 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 15:44:18 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+INFO:     127.0.0.1:52747 - "POST /api/v1/auth/login/access-token?username=admin@hub.local&password=admin@123 HTTP/1.1" 200 OK
+2026-02-02 15:44:20 [ERROR] app.api.v1.email: SMTP error sending email to deepak@firestorm-internet.com for submission 1
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/email.py", line 65, in create_email
+    smtp_message_id = send_email(
+                      ^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/services/email.py", line 41, in send_email
+    server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 750, in login
+    raise last_exception
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2a8c3a23e40sm114313505ad.90 - gsmtp')
+INFO:     127.0.0.1:52749 - "POST /api/v1/emails/ HTTP/1.1" 502 Bad Gateway
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [41466]
+INFO:     Stopping reloader process [34506]

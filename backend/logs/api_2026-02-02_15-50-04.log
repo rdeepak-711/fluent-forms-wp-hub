@@ -1,0 +1,20 @@
+2026-02-02 15:50:04 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:50:04 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:50:05 [INFO] app.main: Dispatched initial sync task to Celery
+2026-02-02 15:50:13 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 15:50:13 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+2026-02-02 15:50:15 [ERROR] app.api.v1.email: SMTP error sending email to deepak@firestorm-internet.com for submission 1
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/api/v1/email.py", line 65, in create_email
+    smtp_message_id = send_email(
+                      ^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/app/services/email.py", line 41, in send_email
+    server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 750, in login
+    raise last_exception
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 739, in login
+    (code, resp) = self.auth(
+                   ^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/smtplib.py", line 662, in auth
+    raise SMTPAuthenticationError(code, resp)
+smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2a8c3b40b67sm139694265ad.21 - gsmtp')

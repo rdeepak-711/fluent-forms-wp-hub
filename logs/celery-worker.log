@@ -1,0 +1,37 @@
+ 
+ -------------- celery@Deepaks-MacBook-Air.local v5.3.4 (emerald-rush)
+--- ***** ----- 
+-- ******* ---- macOS-26.2-arm64-arm-64bit 2026-02-02 15:51:58
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         worker:0x1074a9a90
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     redis://localhost:6379/0
+- *** --- * --- .> concurrency: 10 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . app.tasks.sync_tasks.sync_all_sites_task
+  . app.tasks.sync_tasks.sync_single_site_task
+
+[2026-02-02 15:51:58,858: WARNING/MainProcess] /Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-02-02 15:51:58,863: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2026-02-02 15:51:58,863: WARNING/MainProcess] /Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2026-02-02 15:51:58,865: INFO/MainProcess] mingle: searching for neighbors
+[2026-02-02 15:51:59,881: INFO/MainProcess] mingle: sync with 11 nodes
+[2026-02-02 15:51:59,881: INFO/MainProcess] mingle: sync complete
+[2026-02-02 15:51:59,892: INFO/MainProcess] celery@Deepaks-MacBook-Air.local ready.

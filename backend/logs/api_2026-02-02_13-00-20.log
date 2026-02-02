@@ -1,0 +1,20 @@
+2026-02-02 13:00:20 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:00:20 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:00:20 [INFO] app.main: Dispatched initial sync task to Celery
+2026-02-02 13:23:32 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:23:32 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+2026-02-02 13:24:33 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+2026-02-02 13:24:39 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+2026-02-02 13:28:17 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+2026-02-02 13:31:39 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+2026-02-02 13:32:02 [INFO] app.api.v1.site: Listing sites with skip=0 and limit=100
+2026-02-02 13:36:08 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:36:08 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+2026-02-02 13:36:16 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:36:17 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+2026-02-02 13:36:21 [INFO] app.api.v1.site: Creating new site with name=My WP Site, url=https://alcatraz-island.com, username=Deepak
+2026-02-02 13:36:54 [INFO] app.api.v1.sync: Manual sync started for site 1
+2026-02-02 13:36:54 [INFO] app.api.v1.sync: Syncing site 1
+2026-02-02 13:36:55 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+2026-02-02 13:36:55 [WARNING] app.api.v1.sync: Redis error reading form cache for site 1
+2026-02-02 13:36:55 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/forms "HTTP/1.1 200 OK"

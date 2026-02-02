@@ -1,0 +1,6 @@
+2026-02-02 15:51:58 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:51:58 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:51:58 [INFO] app.main: Dispatched initial sync task to Celery
+2026-02-02 15:52:01 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 15:52:02 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+2026-02-02 15:52:05 [INFO] app.api.v1.email: Email 5 (status=sent) created for submission 1, to=deepak@firestorm-internet.com

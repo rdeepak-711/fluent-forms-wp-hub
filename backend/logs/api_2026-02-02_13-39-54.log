@@ -1,0 +1,13 @@
+2026-02-02 13:39:54 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:39:54 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:39:54 [INFO] app.main: Dispatched initial sync task to Celery
+2026-02-02 13:40:38 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:40:38 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+2026-02-02 13:40:38 [INFO] app.api.v1.sync: Manual sync started for site 1
+2026-02-02 13:40:38 [INFO] app.api.v1.sync: Syncing site 1
+2026-02-02 13:40:39 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+2026-02-02 13:40:39 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+2026-02-02 13:40:39 [INFO] app.api.v1.sync: Sync completed for site 1, synced 1 submissions
+2026-02-02 13:40:55 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:40:55 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+2026-02-02 13:40:55 [INFO] app.api.v1.submission: Fetched 1 submissions

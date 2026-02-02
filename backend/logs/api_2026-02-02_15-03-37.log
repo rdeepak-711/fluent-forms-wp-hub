@@ -1,0 +1,3 @@
+2026-02-02 15:03:37 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 15:03:37 [INFO] app.core.database: Tables created or verified.
+2026-02-02 15:03:37 [INFO] app.main: Dispatched initial sync task to Celery

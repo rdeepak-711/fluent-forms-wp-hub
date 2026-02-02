@@ -1,0 +1,14 @@
+2026-02-02 13:38:31 [INFO] app.core.database: Database 'hubdb' created or already exists.
+2026-02-02 13:38:31 [INFO] app.core.database: Tables created or verified.
+2026-02-02 13:38:31 [INFO] app.main: Dispatched initial sync task to Celery
+2026-02-02 13:38:51 [INFO] app.api.v1.auth: Login attempt for user admin@hub.local
+2026-02-02 13:38:51 [INFO] app.api.v1.auth: User admin@hub.local logged in successfully, id=1
+2026-02-02 13:38:51 [INFO] app.api.v1.sync: Manual sync started for site 1
+2026-02-02 13:38:51 [INFO] app.api.v1.sync: Syncing site 1
+2026-02-02 13:38:52 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+2026-02-02 13:38:52 [WARNING] app.api.v1.sync: Redis error reading form cache for site 1
+2026-02-02 13:38:52 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/forms "HTTP/1.1 200 OK"
+2026-02-02 13:38:52 [WARNING] app.api.v1.sync: Redis error setting form cache for site 1
+2026-02-02 13:38:53 [INFO] httpx: HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/forms/1/entries?page=1&per_page=50 "HTTP/1.1 404 Not Found"
+2026-02-02 13:38:53 [WARNING] app.api.v1.sync: Failed to fetch entries for form 1: HTTP 404
+2026-02-02 13:38:53 [INFO] app.api.v1.sync: Sync completed for site 1, synced 0 submissions
