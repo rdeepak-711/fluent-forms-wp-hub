@@ -34,9 +34,19 @@ class Settings(BaseSettings):
     WP_DEFAULT_API_KEY: str = ""
     WP_DEFAULT_API_SECRET: str = ""
 
+    # Gmail Integration
+    GMAIL_CLIENT_ID: str = ""
+    GMAIL_CLIENT_SECRET: str = ""
+    GMAIL_REDIRECT_URI: str = "http://localhost:8000/api/v1/gmail/oauth/callback"
+    GMAIL_SCOPES: str = "https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.modify"
+    GMAIL_SENDER_EMAIL: str = ""
+    GMAIL_POLL_INTERVAL_HOURS: int = 3
+
     CRYPT_ALGORITHM: str
 
     CORS_ORIGINS: str
+
+    
 
     @computed_field
     @property

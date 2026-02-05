@@ -17,8 +17,10 @@ class UserUpdate(BaseModel):
     is_active: Optional[bool] = None
 
 
-class UserResponse(UserBase):
+class UserResponse(BaseModel):
     id: int
+    email: str  # Use str instead of EmailStr to allow .local domains in response
+    is_active: bool
     role: str
 
     class Config:
@@ -38,3 +40,17 @@ class TokenPayload(BaseModel):
 class LoginRequest(BaseModel):
     username: str
     password: str
+
+
+class EmailUpdateRequest(BaseModel):
+    new_email: EmailStr
+    current_password: str
+
+
+class PasswordChangeRequest(BaseModel):
+    current_password: str
+    new_password: str = Field(min_length=8)
+
+
+class MessageResponse(BaseModel):
+    message: str

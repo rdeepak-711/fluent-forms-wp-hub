@@ -1,10 +1,10 @@
  
  -------------- celery@Deepaks-MacBook-Air.local v5.3.4 (emerald-rush)
 --- ***** ----- 
--- ******* ---- macOS-26.2-arm64-arm-64bit 2026-02-02 15:51:58
+-- ******* ---- macOS-26.2-arm64-arm-64bit 2026-02-05 14:29:43
 - *** --- * --- 
 - ** ---------- [config]
-- ** ---------- .> app:         worker:0x1074a9a90
+- ** ---------- .> app:         worker:0x10b433110
 - ** ---------- .> transport:   redis://localhost:6379/0
 - ** ---------- .> results:     redis://localhost:6379/0
 - *** --- * --- .> concurrency: 10 (prefork)
@@ -15,23 +15,515 @@
                 
 
 [tasks]
+  . app.tasks.gmail_tasks.poll_gmail_replies_task
   . app.tasks.sync_tasks.sync_all_sites_task
   . app.tasks.sync_tasks.sync_single_site_task
 
-[2026-02-02 15:51:58,858: WARNING/MainProcess] /Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+[2026-02-05 14:29:44,170: WARNING/MainProcess] /Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
 whether broker connection retries are made during startup in Celery 6.0 and above.
 If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
-[2026-02-02 15:51:58,863: INFO/MainProcess] Connected to redis://localhost:6379/0
-[2026-02-02 15:51:58,863: WARNING/MainProcess] /Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+[2026-02-05 14:29:44,178: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2026-02-05 14:29:44,178: WARNING/MainProcess] /Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
 whether broker connection retries are made during startup in Celery 6.0 and above.
 If you wish to retain the existing behavior for retrying connections on startup,
 you should set broker_connection_retry_on_startup to True.
   warnings.warn(
 
-[2026-02-02 15:51:58,865: INFO/MainProcess] mingle: searching for neighbors
-[2026-02-02 15:51:59,881: INFO/MainProcess] mingle: sync with 11 nodes
-[2026-02-02 15:51:59,881: INFO/MainProcess] mingle: sync complete
-[2026-02-02 15:51:59,892: INFO/MainProcess] celery@Deepaks-MacBook-Air.local ready.
+[2026-02-05 14:29:44,181: INFO/MainProcess] mingle: searching for neighbors
+[2026-02-05 14:29:45,201: INFO/MainProcess] mingle: sync with 11 nodes
+[2026-02-05 14:29:45,202: INFO/MainProcess] mingle: sync complete
+[2026-02-05 14:29:45,215: INFO/MainProcess] celery@Deepaks-MacBook-Air.local ready.
+[2026-02-05 14:30:00,017: INFO/MainProcess] Task app.tasks.sync_tasks.sync_all_sites_task[848b06df-09bb-4d8d-a9b7-ec1950e1ec5e] received
+[2026-02-05 14:30:00,035: INFO/ForkPoolWorker-8] Dispatching sync for 9 active sites
+[2026-02-05 14:30:00,042: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[7fea8cb4-1711-4dfd-85f5-7453ff80e0ca] received
+[2026-02-05 14:30:00,043: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[61fcdd34-a968-4535-ac79-74f12ae5604e] received
+[2026-02-05 14:30:00,043: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[61f7fd41-0158-4bbd-a0a4-8d8d7233279e] received
+[2026-02-05 14:30:00,045: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[3ee34927-88bd-4cba-b5c1-e74de5163c72] received
+[2026-02-05 14:30:00,044: INFO/ForkPoolWorker-1] Starting sync for site 1 (attempt 1)
+[2026-02-05 14:30:00,045: INFO/ForkPoolWorker-9] Starting sync for site 3 (attempt 1)
+[2026-02-05 14:30:00,047: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[75452529-ee61-4fdb-b5d4-3508bc914887] received
+[2026-02-05 14:30:00,047: INFO/ForkPoolWorker-2] Starting sync for site 4 (attempt 1)
+[2026-02-05 14:30:00,048: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[226ac7bd-f1e4-44e8-b748-c17521926faf] received
+[2026-02-05 14:30:00,048: INFO/ForkPoolWorker-10] Starting sync for site 5 (attempt 1)
+[2026-02-05 14:30:00,050: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_all_sites_task[848b06df-09bb-4d8d-a9b7-ec1950e1ec5e] succeeded in 0.03114362503401935s: None
+[2026-02-05 14:30:00,050: INFO/ForkPoolWorker-3] Starting sync for site 7 (attempt 1)
+[2026-02-05 14:30:00,051: INFO/ForkPoolWorker-4] Starting sync for site 9 (attempt 1)
+[2026-02-05 14:30:00,074: INFO/ForkPoolWorker-9] Syncing site 3
+[2026-02-05 14:30:00,075: INFO/ForkPoolWorker-1] Syncing site 1
+[2026-02-05 14:30:00,077: INFO/ForkPoolWorker-10] Syncing site 5
+[2026-02-05 14:30:00,077: INFO/ForkPoolWorker-2] Syncing site 4
+[2026-02-05 14:30:00,083: INFO/ForkPoolWorker-3] Syncing site 7
+[2026-02-05 14:30:00,087: INFO/ForkPoolWorker-4] Syncing site 9
+[2026-02-05 14:30:01,212: INFO/ForkPoolWorker-1] HTTP Request: GET https://alcatraz-island.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,314: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,344: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,354: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,408: INFO/ForkPoolWorker-3] HTTP Request: GET https://decks-nyc.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,428: INFO/ForkPoolWorker-4] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,676: INFO/ForkPoolWorker-1] HTTP Request: GET https://alcatraz-island.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,708: INFO/ForkPoolWorker-1] Sync completed for site 1, synced 8 submissions
+[2026-02-05 14:30:01,711: INFO/ForkPoolWorker-1] Successfully synced site 1 (Alcatraz Island)
+[2026-02-05 14:30:01,716: INFO/ForkPoolWorker-1] Task app.tasks.sync_tasks.sync_single_site_task[7fea8cb4-1711-4dfd-85f5-7453ff80e0ca] succeeded in 1.6727403340046294s: None
+[2026-02-05 14:30:01,864: INFO/ForkPoolWorker-3] HTTP Request: GET https://decks-nyc.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,870: INFO/ForkPoolWorker-3] Sync completed for site 7, synced 0 submissions
+[2026-02-05 14:30:01,871: INFO/ForkPoolWorker-3] Successfully synced site 7 (Decks NYC)
+[2026-02-05 14:30:01,875: INFO/ForkPoolWorker-3] Task app.tasks.sync_tasks.sync_single_site_task[75452529-ee61-4fdb-b5d4-3508bc914887] succeeded in 1.8258930000010878s: None
+[2026-02-05 14:30:01,988: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:30:01,996: INFO/ForkPoolWorker-9] Sync completed for site 3, synced 2 submissions
+[2026-02-05 14:30:01,997: INFO/ForkPoolWorker-9] Successfully synced site 3 (Alhambra Palace)
+[2026-02-05 14:30:02,002: INFO/ForkPoolWorker-9] Task app.tasks.sync_tasks.sync_single_site_task[61fcdd34-a968-4535-ac79-74f12ae5604e] succeeded in 1.9579102920251898s: None
+[2026-02-05 14:30:02,023: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:30:02,033: INFO/ForkPoolWorker-2] Sync completed for site 4, synced 0 submissions
+[2026-02-05 14:30:02,034: INFO/ForkPoolWorker-2] Successfully synced site 4 (Belvedere Tickets)
+[2026-02-05 14:30:02,041: INFO/ForkPoolWorker-2] Task app.tasks.sync_tasks.sync_single_site_task[61f7fd41-0158-4bbd-a0a4-8d8d7233279e] succeeded in 1.995455666037742s: None
+[2026-02-05 14:30:02,059: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:30:02,068: INFO/ForkPoolWorker-10] Sync completed for site 5, synced 0 submissions
+[2026-02-05 14:30:02,069: INFO/ForkPoolWorker-10] Successfully synced site 5 (Cappadocia Tours)
+[2026-02-05 14:30:02,075: INFO/ForkPoolWorker-10] Task app.tasks.sync_tasks.sync_single_site_task[3ee34927-88bd-4cba-b5c1-e74de5163c72] succeeded in 2.027693915995769s: None
+[2026-02-05 14:30:02,136: INFO/ForkPoolWorker-4] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:30:02,144: INFO/ForkPoolWorker-4] Sync completed for site 9, synced 0 submissions
+[2026-02-05 14:30:02,145: INFO/ForkPoolWorker-4] Successfully synced site 9 (Duodimilano Tickets)
+[2026-02-05 14:30:02,149: INFO/ForkPoolWorker-4] Task app.tasks.sync_tasks.sync_single_site_task[226ac7bd-f1e4-44e8-b748-c17521926faf] succeeded in 2.0982395419850945s: None
+[2026-02-05 14:40:13,337: INFO/MainProcess] Task app.tasks.sync_tasks.sync_all_sites_task[8aa1acd8-cbcc-47e1-a251-b29103820e5f] received
+[2026-02-05 14:40:13,355: INFO/ForkPoolWorker-8] Dispatching sync for 9 active sites
+[2026-02-05 14:40:13,360: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[9e76b9fb-44b1-42b3-a4c4-cbad47657dca] received
+[2026-02-05 14:40:13,364: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[b1a35046-73c5-4c9e-94d0-8b8d0b39aee7] received
+[2026-02-05 14:40:13,365: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[ed5543d1-6212-4512-a7e8-c7df5c76fe08] received
+[2026-02-05 14:40:13,366: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[3d507c28-1f17-466b-8f67-80264628d7e0] received
+[2026-02-05 14:40:13,367: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[676869f7-baab-4337-b28a-1def164dba9f] received
+[2026-02-05 14:40:13,368: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[11d3ba98-48d6-48e8-959f-a0970ffd16ac] received
+[2026-02-05 14:40:13,371: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[03933a06-85de-48d9-aad2-35c3c3957732] received
+[2026-02-05 14:40:13,370: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_all_sites_task[8aa1acd8-cbcc-47e1-a251-b29103820e5f] succeeded in 0.029592207982204854s: None
+[2026-02-05 14:40:13,373: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[0884b141-5bce-423b-b48c-669a97aeacd5] received
+[2026-02-05 14:40:13,381: INFO/ForkPoolWorker-8] Starting sync for site 10 (attempt 1)
+[2026-02-05 14:40:13,379: INFO/ForkPoolWorker-10] Starting sync for site 5 (attempt 1)
+[2026-02-05 14:40:13,379: INFO/ForkPoolWorker-9] Starting sync for site 3 (attempt 1)
+[2026-02-05 14:40:13,377: INFO/ForkPoolWorker-1] Starting sync for site 2 (attempt 1)
+[2026-02-05 14:40:13,377: INFO/ForkPoolWorker-2] Starting sync for site 4 (attempt 1)
+[2026-02-05 14:40:13,383: INFO/ForkPoolWorker-4] Starting sync for site 7 (attempt 1)
+[2026-02-05 14:40:13,384: INFO/ForkPoolWorker-3] Starting sync for site 6 (attempt 1)
+[2026-02-05 14:40:13,391: INFO/ForkPoolWorker-5] Starting sync for site 9 (attempt 1)
+[2026-02-05 14:40:13,413: INFO/ForkPoolWorker-1] Syncing site 2
+[2026-02-05 14:40:13,414: INFO/ForkPoolWorker-9] Syncing site 3
+[2026-02-05 14:40:13,413: INFO/ForkPoolWorker-10] Syncing site 5
+[2026-02-05 14:40:13,414: INFO/ForkPoolWorker-2] Syncing site 4
+[2026-02-05 14:40:13,415: INFO/ForkPoolWorker-4] Syncing site 7
+[2026-02-05 14:40:13,417: INFO/ForkPoolWorker-8] Syncing site 10
+[2026-02-05 14:40:13,426: INFO/ForkPoolWorker-3] Syncing site 6
+[2026-02-05 14:40:13,458: INFO/ForkPoolWorker-5] Syncing site 9
+[2026-02-05 14:40:14,631: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:14,636: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:14,651: INFO/ForkPoolWorker-8] HTTP Request: GET https://harrypotter-studio.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:14,660: INFO/ForkPoolWorker-5] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:14,697: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:14,697: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:14,736: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:14,870: INFO/ForkPoolWorker-4] HTTP Request: GET https://decks-nyc.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,115: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,126: INFO/ForkPoolWorker-3] Sync completed for site 6, synced 1 submissions
+[2026-02-05 14:40:15,128: INFO/ForkPoolWorker-3] Successfully synced site 6 (Colosseum Rome)
+[2026-02-05 14:40:15,131: INFO/ForkPoolWorker-3] Task app.tasks.sync_tasks.sync_single_site_task[676869f7-baab-4337-b28a-1def164dba9f] succeeded in 1.7539420840330422s: None
+[2026-02-05 14:40:15,276: INFO/ForkPoolWorker-4] HTTP Request: GET https://decks-nyc.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,282: INFO/ForkPoolWorker-4] Sync completed for site 7, synced 0 submissions
+[2026-02-05 14:40:15,283: INFO/ForkPoolWorker-4] Successfully synced site 7 (Decks NYC)
+[2026-02-05 14:40:15,284: INFO/ForkPoolWorker-4] Task app.tasks.sync_tasks.sync_single_site_task[11d3ba98-48d6-48e8-959f-a0970ffd16ac] succeeded in 1.902100250008516s: None
+[2026-02-05 14:40:15,436: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,440: INFO/ForkPoolWorker-2] Sync completed for site 4, synced 0 submissions
+[2026-02-05 14:40:15,441: INFO/ForkPoolWorker-2] Successfully synced site 4 (Belvedere Tickets)
+[2026-02-05 14:40:15,443: INFO/ForkPoolWorker-2] Task app.tasks.sync_tasks.sync_single_site_task[ed5543d1-6212-4512-a7e8-c7df5c76fe08] succeeded in 2.0734337079920806s: None
+[2026-02-05 14:40:15,509: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,515: INFO/ForkPoolWorker-9] Sync completed for site 3, synced 2 submissions
+[2026-02-05 14:40:15,516: INFO/ForkPoolWorker-9] Successfully synced site 3 (Alhambra Palace)
+[2026-02-05 14:40:15,518: INFO/ForkPoolWorker-9] Task app.tasks.sync_tasks.sync_single_site_task[b1a35046-73c5-4c9e-94d0-8b8d0b39aee7] succeeded in 2.1478664170135744s: None
+[2026-02-05 14:40:15,518: INFO/ForkPoolWorker-5] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,524: INFO/ForkPoolWorker-5] Sync completed for site 9, synced 0 submissions
+[2026-02-05 14:40:15,526: INFO/ForkPoolWorker-5] Successfully synced site 9 (Duodimilano Tickets)
+[2026-02-05 14:40:15,528: INFO/ForkPoolWorker-5] Task app.tasks.sync_tasks.sync_single_site_task[03933a06-85de-48d9-aad2-35c3c3957732] succeeded in 2.1419508749968372s: None
+[2026-02-05 14:40:15,540: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,541: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,544: INFO/ForkPoolWorker-10] Sync completed for site 5, synced 0 submissions
+[2026-02-05 14:40:15,545: INFO/ForkPoolWorker-10] Successfully synced site 5 (Cappadocia Tours)
+[2026-02-05 14:40:15,545: INFO/ForkPoolWorker-1] Sync completed for site 2, synced 1 submissions
+[2026-02-05 14:40:15,546: INFO/ForkPoolWorker-1] Successfully synced site 2 (Dubrovnik Tickets)
+[2026-02-05 14:40:15,547: INFO/ForkPoolWorker-10] Task app.tasks.sync_tasks.sync_single_site_task[3d507c28-1f17-466b-8f67-80264628d7e0] succeeded in 2.174736125045456s: None
+[2026-02-05 14:40:15,548: INFO/ForkPoolWorker-1] Task app.tasks.sync_tasks.sync_single_site_task[9e76b9fb-44b1-42b3-a4c4-cbad47657dca] succeeded in 2.179146291979123s: None
+[2026-02-05 14:40:15,549: INFO/ForkPoolWorker-8] HTTP Request: GET https://harrypotter-studio.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:15,556: INFO/ForkPoolWorker-8] Sync completed for site 10, synced 0 submissions
+[2026-02-05 14:40:15,556: INFO/ForkPoolWorker-8] Successfully synced site 10 (Harrypotter Studio)
+[2026-02-05 14:40:15,558: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_single_site_task[0884b141-5bce-423b-b48c-669a97aeacd5] succeeded in 2.1780107500380836s: None
+[2026-02-05 14:40:24,245: INFO/MainProcess] Task app.tasks.sync_tasks.sync_all_sites_task[17591ed1-417a-461a-ac7e-ff44d7ecc406] received
+[2026-02-05 14:40:24,247: INFO/ForkPoolWorker-8] Dispatching sync for 9 active sites
+[2026-02-05 14:40:24,249: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[35ac3f58-7d9f-44c2-9803-7c80470e2118] received
+[2026-02-05 14:40:24,250: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[7c7d6288-562f-4024-8416-10030d725195] received
+[2026-02-05 14:40:24,251: INFO/ForkPoolWorker-1] Starting sync for site 2 (attempt 1)
+[2026-02-05 14:40:24,251: INFO/ForkPoolWorker-9] Starting sync for site 3 (attempt 1)
+[2026-02-05 14:40:24,251: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[b39fb4a4-0383-4bfa-8b29-ca13f1c1877d] received
+[2026-02-05 14:40:24,252: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[6286596b-1ac5-44f4-81dc-cc2eb8888e5d] received
+[2026-02-05 14:40:24,252: INFO/ForkPoolWorker-2] Starting sync for site 4 (attempt 1)
+[2026-02-05 14:40:24,253: INFO/ForkPoolWorker-10] Starting sync for site 6 (attempt 1)
+[2026-02-05 14:40:24,253: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[bf9226b3-bf06-4b81-b921-f076a089bc50] received
+[2026-02-05 14:40:24,253: INFO/ForkPoolWorker-9] Syncing site 3
+[2026-02-05 14:40:24,253: INFO/ForkPoolWorker-1] Syncing site 2
+[2026-02-05 14:40:24,253: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_all_sites_task[17591ed1-417a-461a-ac7e-ff44d7ecc406] succeeded in 0.007494250021409243s: None
+[2026-02-05 14:40:24,254: INFO/ForkPoolWorker-2] Syncing site 4
+[2026-02-05 14:40:24,254: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[4a203524-f289-49ba-aefc-e34e2b4117d0] received
+[2026-02-05 14:40:24,255: INFO/ForkPoolWorker-10] Syncing site 6
+[2026-02-05 14:40:24,255: INFO/ForkPoolWorker-8] Starting sync for site 7 (attempt 1)
+[2026-02-05 14:40:24,255: INFO/ForkPoolWorker-3] Starting sync for site 10 (attempt 1)
+[2026-02-05 14:40:24,257: INFO/ForkPoolWorker-8] Syncing site 7
+[2026-02-05 14:40:24,257: INFO/ForkPoolWorker-3] Syncing site 10
+[2026-02-05 14:40:24,712: INFO/ForkPoolWorker-8] HTTP Request: GET https://decks-nyc.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:25,152: INFO/ForkPoolWorker-8] HTTP Request: GET https://decks-nyc.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:25,159: INFO/ForkPoolWorker-8] Sync completed for site 7, synced 0 submissions
+[2026-02-05 14:40:25,160: INFO/ForkPoolWorker-8] Successfully synced site 7 (Decks NYC)
+[2026-02-05 14:40:25,161: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_single_site_task[bf9226b3-bf06-4b81-b921-f076a089bc50] succeeded in 0.9063471249537542s: None
+[2026-02-05 14:40:25,272: INFO/ForkPoolWorker-10] HTTP Request: GET https://colosseum-rome.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:25,485: INFO/ForkPoolWorker-3] HTTP Request: GET https://harrypotter-studio.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:25,536: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:25,750: INFO/ForkPoolWorker-10] HTTP Request: GET https://colosseum-rome.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:25,759: INFO/ForkPoolWorker-10] Sync completed for site 6, synced 1 submissions
+[2026-02-05 14:40:25,760: INFO/ForkPoolWorker-10] Successfully synced site 6 (Colosseum Rome)
+[2026-02-05 14:40:25,761: INFO/ForkPoolWorker-10] Task app.tasks.sync_tasks.sync_single_site_task[6286596b-1ac5-44f4-81dc-cc2eb8888e5d] succeeded in 1.508605458016973s: None
+[2026-02-05 14:40:25,977: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:26,164: INFO/ForkPoolWorker-3] HTTP Request: GET https://harrypotter-studio.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:26,168: INFO/ForkPoolWorker-3] Sync completed for site 10, synced 0 submissions
+[2026-02-05 14:40:26,169: INFO/ForkPoolWorker-3] Successfully synced site 10 (Harrypotter Studio)
+[2026-02-05 14:40:26,170: INFO/ForkPoolWorker-3] Task app.tasks.sync_tasks.sync_single_site_task[4a203524-f289-49ba-aefc-e34e2b4117d0] succeeded in 1.9147929589962587s: None
+[2026-02-05 14:40:26,221: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:26,226: INFO/ForkPoolWorker-1] Sync completed for site 2, synced 1 submissions
+[2026-02-05 14:40:26,226: INFO/ForkPoolWorker-1] Successfully synced site 2 (Dubrovnik Tickets)
+[2026-02-05 14:40:26,227: INFO/ForkPoolWorker-1] Task app.tasks.sync_tasks.sync_single_site_task[35ac3f58-7d9f-44c2-9803-7c80470e2118] succeeded in 1.9761865829932503s: None
+[2026-02-05 14:40:26,493: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 14:40:26,613: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:26,617: INFO/ForkPoolWorker-2] Sync completed for site 4, synced 0 submissions
+[2026-02-05 14:40:26,618: INFO/ForkPoolWorker-2] Successfully synced site 4 (Belvedere Tickets)
+[2026-02-05 14:40:26,619: INFO/ForkPoolWorker-2] Task app.tasks.sync_tasks.sync_single_site_task[b39fb4a4-0383-4bfa-8b29-ca13f1c1877d] succeeded in 2.3664773749769665s: None
+[2026-02-05 14:40:27,135: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 14:40:27,139: INFO/ForkPoolWorker-9] Sync completed for site 3, synced 2 submissions
+[2026-02-05 14:40:27,139: INFO/ForkPoolWorker-9] Successfully synced site 3 (Alhambra Palace)
+[2026-02-05 14:40:27,140: INFO/ForkPoolWorker-9] Task app.tasks.sync_tasks.sync_single_site_task[7c7d6288-562f-4024-8416-10030d725195] succeeded in 2.889471958973445s: None
+[2026-02-05 15:06:49,301: INFO/MainProcess] Task app.tasks.sync_tasks.sync_all_sites_task[877cff36-bbaf-4915-b776-ee1b9b5f5678] received
+[2026-02-05 15:06:49,312: INFO/ForkPoolWorker-8] Dispatching sync for 9 active sites
+[2026-02-05 15:06:49,317: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[5f00c288-6d1e-4c7b-8bb5-f4e091c00a22] received
+[2026-02-05 15:06:49,318: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[c0f38ab2-b3d7-42d0-8c1d-2f08b5fbd9db] received
+[2026-02-05 15:06:49,318: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[57ac675f-8f95-4ddc-93a7-a46ebef5fb53] received
+[2026-02-05 15:06:49,319: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[9f019ea7-3cb9-4f81-8066-082ea9a0343a] received
+[2026-02-05 15:06:49,321: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[abfbdd5c-51bb-455f-8eb1-8c7c5f8f7b22] received
+[2026-02-05 15:06:49,320: INFO/ForkPoolWorker-1] Starting sync for site 2 (attempt 1)
+[2026-02-05 15:06:49,321: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_all_sites_task[877cff36-bbaf-4915-b776-ee1b9b5f5678] succeeded in 0.01644525001756847s: None
+[2026-02-05 15:06:49,322: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[749ae8d6-0527-47dc-8443-a7e42d9039ff] received
+[2026-02-05 15:06:49,321: INFO/ForkPoolWorker-9] Starting sync for site 3 (attempt 1)
+[2026-02-05 15:06:49,322: INFO/ForkPoolWorker-2] Starting sync for site 4 (attempt 1)
+[2026-02-05 15:06:49,324: INFO/ForkPoolWorker-8] Starting sync for site 7 (attempt 1)
+[2026-02-05 15:06:49,323: INFO/ForkPoolWorker-10] Starting sync for site 5 (attempt 1)
+[2026-02-05 15:06:49,325: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[aafe5ad8-9120-4037-9fad-1dd202697167] received
+[2026-02-05 15:06:49,324: INFO/ForkPoolWorker-3] Starting sync for site 6 (attempt 1)
+[2026-02-05 15:06:49,329: INFO/ForkPoolWorker-8] Syncing site 7
+[2026-02-05 15:06:49,330: INFO/ForkPoolWorker-4] Starting sync for site 9 (attempt 1)
+[2026-02-05 15:06:49,335: INFO/ForkPoolWorker-1] Syncing site 2
+[2026-02-05 15:06:49,336: INFO/ForkPoolWorker-2] Syncing site 4
+[2026-02-05 15:06:49,337: INFO/ForkPoolWorker-9] Syncing site 3
+[2026-02-05 15:06:49,342: INFO/ForkPoolWorker-10] Syncing site 5
+[2026-02-05 15:06:49,342: INFO/ForkPoolWorker-3] Syncing site 6
+[2026-02-05 15:06:49,354: INFO/ForkPoolWorker-4] Syncing site 9
+[2026-02-05 15:06:50,332: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:06:50,490: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:06:50,621: INFO/ForkPoolWorker-4] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:06:50,644: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:06:50,645: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:06:50,668: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:06:50,713: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:06:50,723: INFO/ForkPoolWorker-10] Sync completed for site 5, synced 0 submissions
+[2026-02-05 15:06:50,725: INFO/ForkPoolWorker-10] Successfully synced site 5 (Cappadocia Tours)
+[2026-02-05 15:06:50,729: INFO/ForkPoolWorker-10] Task app.tasks.sync_tasks.sync_single_site_task[9f019ea7-3cb9-4f81-8066-082ea9a0343a] succeeded in 1.4066845000488684s: None
+[2026-02-05 15:06:50,814: INFO/ForkPoolWorker-8] HTTP Request: GET https://decks-nyc.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:06:51,014: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:06:51,028: INFO/ForkPoolWorker-3] Sync completed for site 6, synced 1 submissions
+[2026-02-05 15:06:51,029: INFO/ForkPoolWorker-3] Successfully synced site 6 (Colosseum Rome)
+[2026-02-05 15:06:51,032: INFO/ForkPoolWorker-3] Task app.tasks.sync_tasks.sync_single_site_task[abfbdd5c-51bb-455f-8eb1-8c7c5f8f7b22] succeeded in 1.7089492090162821s: None
+[2026-02-05 15:06:51,244: INFO/ForkPoolWorker-8] HTTP Request: GET https://decks-nyc.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:06:51,292: INFO/ForkPoolWorker-4] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:06:51,295: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:06:51,301: INFO/ForkPoolWorker-4] Sync completed for site 9, synced 0 submissions
+[2026-02-05 15:06:51,303: INFO/ForkPoolWorker-4] Successfully synced site 9 (Duodimilano Tickets)
+[2026-02-05 15:06:51,303: INFO/ForkPoolWorker-2] Sync completed for site 4, synced 0 submissions
+[2026-02-05 15:06:51,304: INFO/ForkPoolWorker-2] Successfully synced site 4 (Belvedere Tickets)
+[2026-02-05 15:06:51,305: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:06:51,306: INFO/ForkPoolWorker-4] Task app.tasks.sync_tasks.sync_single_site_task[aafe5ad8-9120-4037-9fad-1dd202697167] succeeded in 1.977051708032377s: None
+[2026-02-05 15:06:51,308: INFO/ForkPoolWorker-2] Task app.tasks.sync_tasks.sync_single_site_task[57ac675f-8f95-4ddc-93a7-a46ebef5fb53] succeeded in 1.9862847920157947s: None
+[2026-02-05 15:06:51,316: INFO/ForkPoolWorker-9] Sync completed for site 3, synced 2 submissions
+[2026-02-05 15:06:51,317: INFO/ForkPoolWorker-9] Successfully synced site 3 (Alhambra Palace)
+[2026-02-05 15:06:51,320: INFO/ForkPoolWorker-9] Task app.tasks.sync_tasks.sync_single_site_task[c0f38ab2-b3d7-42d0-8c1d-2f08b5fbd9db] succeeded in 1.9995376670267433s: None
+[2026-02-05 15:06:51,345: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:06:51,352: INFO/ForkPoolWorker-1] Sync completed for site 2, synced 1 submissions
+[2026-02-05 15:06:51,353: INFO/ForkPoolWorker-1] Successfully synced site 2 (Dubrovnik Tickets)
+[2026-02-05 15:06:51,355: INFO/ForkPoolWorker-1] Task app.tasks.sync_tasks.sync_single_site_task[5f00c288-6d1e-4c7b-8bb5-f4e091c00a22] succeeded in 2.035684999951627s: None
+[2026-02-05 15:06:51,467: INFO/ForkPoolWorker-8] Sync completed for site 7, synced 0 submissions
+[2026-02-05 15:06:51,469: INFO/ForkPoolWorker-8] Successfully synced site 7 (Decks NYC)
+[2026-02-05 15:06:51,471: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_single_site_task[749ae8d6-0527-47dc-8443-a7e42d9039ff] succeeded in 2.146958250028547s: None
+[2026-02-05 15:10:16,651: INFO/MainProcess] Task app.tasks.sync_tasks.sync_all_sites_task[0eee95b3-481b-46bc-aa39-4c6966ce1586] received
+[2026-02-05 15:10:16,659: INFO/ForkPoolWorker-8] Dispatching sync for 9 active sites
+[2026-02-05 15:10:16,663: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[c35b1599-7101-4f36-be52-ddb29c344f8d] received
+[2026-02-05 15:10:16,664: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[0acef8ed-5955-4023-8cfb-086ceae27b64] received
+[2026-02-05 15:10:16,665: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[a19c55e3-cc4e-4a56-abc9-347e18b67db0] received
+[2026-02-05 15:10:16,667: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[6355e56e-a42a-4f01-a7fa-e4c5e722c3ba] received
+[2026-02-05 15:10:16,667: INFO/ForkPoolWorker-1] Starting sync for site 2 (attempt 1)
+[2026-02-05 15:10:16,668: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[f6ba90a2-dbc3-4e5a-86f9-b0feff200bfb] received
+[2026-02-05 15:10:16,669: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[8fa2c9b3-1986-4b26-a8de-b6a12719c075] received
+[2026-02-05 15:10:16,669: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_all_sites_task[0eee95b3-481b-46bc-aa39-4c6966ce1586] succeeded in 0.015053500013891608s: None
+[2026-02-05 15:10:16,668: INFO/ForkPoolWorker-2] Starting sync for site 4 (attempt 1)
+[2026-02-05 15:10:16,668: INFO/ForkPoolWorker-9] Starting sync for site 3 (attempt 1)
+[2026-02-05 15:10:16,670: INFO/ForkPoolWorker-10] Starting sync for site 5 (attempt 1)
+[2026-02-05 15:10:16,673: INFO/ForkPoolWorker-4] Starting sync for site 9 (attempt 1)
+[2026-02-05 15:10:16,673: INFO/ForkPoolWorker-3] Starting sync for site 6 (attempt 1)
+[2026-02-05 15:10:16,681: INFO/ForkPoolWorker-1] Syncing site 2
+[2026-02-05 15:10:16,684: INFO/ForkPoolWorker-2] Syncing site 4
+[2026-02-05 15:10:16,684: INFO/ForkPoolWorker-9] Syncing site 3
+[2026-02-05 15:10:16,684: INFO/ForkPoolWorker-10] Syncing site 5
+[2026-02-05 15:10:16,688: INFO/ForkPoolWorker-3] Syncing site 6
+[2026-02-05 15:10:16,688: INFO/ForkPoolWorker-4] Syncing site 9
+[2026-02-05 15:10:17,686: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:10:17,900: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:10:17,925: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:10:18,020: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:10:18,089: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:10:18,096: INFO/ForkPoolWorker-10] Sync completed for site 5, synced 0 submissions
+[2026-02-05 15:10:18,097: INFO/ForkPoolWorker-10] Successfully synced site 5 (Cappadocia Tours)
+[2026-02-05 15:10:18,099: INFO/ForkPoolWorker-10] Task app.tasks.sync_tasks.sync_single_site_task[6355e56e-a42a-4f01-a7fa-e4c5e722c3ba] succeeded in 1.4297903749975376s: None
+[2026-02-05 15:10:18,155: INFO/ForkPoolWorker-4] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:10:18,524: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:10:18,532: INFO/ForkPoolWorker-1] Sync completed for site 2, synced 1 submissions
+[2026-02-05 15:10:18,533: INFO/ForkPoolWorker-1] Successfully synced site 2 (Dubrovnik Tickets)
+[2026-02-05 15:10:18,536: INFO/ForkPoolWorker-1] Task app.tasks.sync_tasks.sync_single_site_task[c35b1599-7101-4f36-be52-ddb29c344f8d] succeeded in 1.869699084025342s: None
+[2026-02-05 15:10:18,549: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:10:18,575: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:10:18,582: INFO/ForkPoolWorker-2] Sync completed for site 4, synced 0 submissions
+[2026-02-05 15:10:18,583: INFO/ForkPoolWorker-2] Successfully synced site 4 (Belvedere Tickets)
+[2026-02-05 15:10:18,586: INFO/ForkPoolWorker-2] Task app.tasks.sync_tasks.sync_single_site_task[a19c55e3-cc4e-4a56-abc9-347e18b67db0] succeeded in 1.9184282909845933s: None
+[2026-02-05 15:10:18,774: INFO/ForkPoolWorker-3] Sync completed for site 6, synced 1 submissions
+[2026-02-05 15:10:18,775: INFO/ForkPoolWorker-4] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:10:18,776: INFO/ForkPoolWorker-3] Successfully synced site 6 (Colosseum Rome)
+[2026-02-05 15:10:18,781: INFO/ForkPoolWorker-3] Task app.tasks.sync_tasks.sync_single_site_task[f6ba90a2-dbc3-4e5a-86f9-b0feff200bfb] succeeded in 2.107880291994661s: None
+[2026-02-05 15:10:18,783: INFO/ForkPoolWorker-4] Sync completed for site 9, synced 0 submissions
+[2026-02-05 15:10:18,784: INFO/ForkPoolWorker-4] Successfully synced site 9 (Duodimilano Tickets)
+[2026-02-05 15:10:18,786: INFO/ForkPoolWorker-4] Task app.tasks.sync_tasks.sync_single_site_task[8fa2c9b3-1986-4b26-a8de-b6a12719c075] succeeded in 2.1134373749955557s: None
+[2026-02-05 15:10:18,988: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:10:19,619: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:10:19,627: INFO/ForkPoolWorker-9] Sync completed for site 3, synced 2 submissions
+[2026-02-05 15:10:19,629: INFO/ForkPoolWorker-9] Successfully synced site 3 (Alhambra Palace)
+[2026-02-05 15:10:19,632: INFO/ForkPoolWorker-9] Task app.tasks.sync_tasks.sync_single_site_task[0acef8ed-5955-4023-8cfb-086ceae27b64] succeeded in 2.965032332984265s: None
+[2026-02-05 15:11:47,640: INFO/MainProcess] Task app.tasks.sync_tasks.sync_all_sites_task[3e85d30a-7354-4c3b-a0f9-66f905b06b6e] received
+[2026-02-05 15:11:47,647: INFO/ForkPoolWorker-8] Dispatching sync for 9 active sites
+[2026-02-05 15:11:47,651: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[e2f27b6d-bd4f-46e5-92c5-233779126b89] received
+[2026-02-05 15:11:47,652: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[4b508131-68a6-4859-9e46-745d991b54db] received
+[2026-02-05 15:11:47,653: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[4df52347-f7b2-432e-b121-823093d58e05] received
+[2026-02-05 15:11:47,654: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[494df280-971b-477f-b4e2-d3275a7a491e] received
+[2026-02-05 15:11:47,655: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[8fb546b7-4d9e-42e6-9a47-eef2d46e9d50] received
+[2026-02-05 15:11:47,654: INFO/ForkPoolWorker-1] Starting sync for site 2 (attempt 1)
+[2026-02-05 15:11:47,655: INFO/ForkPoolWorker-9] Starting sync for site 3 (attempt 1)
+[2026-02-05 15:11:47,656: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_all_sites_task[3e85d30a-7354-4c3b-a0f9-66f905b06b6e] succeeded in 0.013514166988898069s: None
+[2026-02-05 15:11:47,657: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[2c1050a5-f94d-4525-bacf-626bbce45515] received
+[2026-02-05 15:11:47,656: INFO/ForkPoolWorker-2] Starting sync for site 4 (attempt 1)
+[2026-02-05 15:11:47,658: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[c4426f79-8d56-4fb8-a46e-d41a652a810d] received
+[2026-02-05 15:11:47,658: INFO/ForkPoolWorker-8] Starting sync for site 9 (attempt 1)
+[2026-02-05 15:11:47,657: INFO/ForkPoolWorker-10] Starting sync for site 5 (attempt 1)
+[2026-02-05 15:11:47,659: INFO/ForkPoolWorker-3] Starting sync for site 6 (attempt 1)
+[2026-02-05 15:11:47,662: INFO/ForkPoolWorker-8] Syncing site 9
+[2026-02-05 15:11:47,662: INFO/ForkPoolWorker-4] Starting sync for site 10 (attempt 1)
+[2026-02-05 15:11:47,667: INFO/ForkPoolWorker-9] Syncing site 3
+[2026-02-05 15:11:47,667: INFO/ForkPoolWorker-1] Syncing site 2
+[2026-02-05 15:11:47,668: INFO/ForkPoolWorker-2] Syncing site 4
+[2026-02-05 15:11:47,670: INFO/ForkPoolWorker-10] Syncing site 5
+[2026-02-05 15:11:47,671: INFO/ForkPoolWorker-3] Syncing site 6
+[2026-02-05 15:11:47,674: INFO/ForkPoolWorker-4] Syncing site 10
+[2026-02-05 15:11:48,610: INFO/ForkPoolWorker-8] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:48,611: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:48,881: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:48,905: INFO/ForkPoolWorker-4] HTTP Request: GET https://harrypotter-studio.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:48,911: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:48,918: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:48,986: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:48,990: INFO/ForkPoolWorker-10] Sync completed for site 5, synced 0 submissions
+[2026-02-05 15:11:48,990: INFO/ForkPoolWorker-10] Successfully synced site 5 (Cappadocia Tours)
+[2026-02-05 15:11:48,991: INFO/ForkPoolWorker-8] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:48,992: INFO/ForkPoolWorker-10] Task app.tasks.sync_tasks.sync_single_site_task[494df280-971b-477f-b4e2-d3275a7a491e] succeeded in 1.335565667017363s: None
+[2026-02-05 15:11:48,994: INFO/ForkPoolWorker-8] Sync completed for site 9, synced 0 submissions
+[2026-02-05 15:11:48,994: INFO/ForkPoolWorker-8] Successfully synced site 9 (Duodimilano Tickets)
+[2026-02-05 15:11:48,995: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_single_site_task[2c1050a5-f94d-4525-bacf-626bbce45515] succeeded in 1.3377472090069205s: None
+[2026-02-05 15:11:49,047: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:49,535: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:49,536: INFO/ForkPoolWorker-4] HTTP Request: GET https://harrypotter-studio.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:49,537: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:49,545: INFO/ForkPoolWorker-4] Sync completed for site 10, synced 0 submissions
+[2026-02-05 15:11:49,546: INFO/ForkPoolWorker-3] Sync completed for site 6, synced 1 submissions
+[2026-02-05 15:11:49,546: INFO/ForkPoolWorker-1] Sync completed for site 2, synced 1 submissions
+[2026-02-05 15:11:49,546: INFO/ForkPoolWorker-4] Successfully synced site 10 (Harrypotter Studio)
+[2026-02-05 15:11:49,546: INFO/ForkPoolWorker-3] Successfully synced site 6 (Colosseum Rome)
+[2026-02-05 15:11:49,547: INFO/ForkPoolWorker-1] Successfully synced site 2 (Dubrovnik Tickets)
+[2026-02-05 15:11:49,548: INFO/ForkPoolWorker-3] Task app.tasks.sync_tasks.sync_single_site_task[8fb546b7-4d9e-42e6-9a47-eef2d46e9d50] succeeded in 1.8901970000006258s: None
+[2026-02-05 15:11:49,548: INFO/ForkPoolWorker-4] Task app.tasks.sync_tasks.sync_single_site_task[c4426f79-8d56-4fb8-a46e-d41a652a810d] succeeded in 1.8871464160038158s: None
+[2026-02-05 15:11:49,549: INFO/ForkPoolWorker-1] Task app.tasks.sync_tasks.sync_single_site_task[e2f27b6d-bd4f-46e5-92c5-233779126b89] succeeded in 1.8952069580554962s: None
+[2026-02-05 15:11:49,552: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:49,556: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:49,560: INFO/ForkPoolWorker-9] Sync completed for site 3, synced 2 submissions
+[2026-02-05 15:11:49,561: INFO/ForkPoolWorker-9] Successfully synced site 3 (Alhambra Palace)
+[2026-02-05 15:11:49,562: INFO/ForkPoolWorker-2] Sync completed for site 4, synced 0 submissions
+[2026-02-05 15:11:49,563: INFO/ForkPoolWorker-2] Successfully synced site 4 (Belvedere Tickets)
+[2026-02-05 15:11:49,563: INFO/ForkPoolWorker-9] Task app.tasks.sync_tasks.sync_single_site_task[4b508131-68a6-4859-9e46-745d991b54db] succeeded in 1.9089565420290455s: None
+[2026-02-05 15:11:49,565: INFO/ForkPoolWorker-2] Task app.tasks.sync_tasks.sync_single_site_task[4df52347-f7b2-432e-b121-823093d58e05] succeeded in 1.9095573329832405s: None
+[2026-02-05 15:11:51,976: INFO/MainProcess] Task app.tasks.sync_tasks.sync_all_sites_task[69eece13-5581-4bbd-80ed-86a4f542dc69] received
+[2026-02-05 15:11:51,978: INFO/ForkPoolWorker-8] Dispatching sync for 9 active sites
+[2026-02-05 15:11:51,980: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[8a03ea5f-e642-4004-a1b9-f50d933d4628] received
+[2026-02-05 15:11:51,980: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[b4c1267a-61a3-4513-9de1-78fea7340d53] received
+[2026-02-05 15:11:51,980: INFO/ForkPoolWorker-1] Starting sync for site 2 (attempt 1)
+[2026-02-05 15:11:51,981: INFO/ForkPoolWorker-9] Starting sync for site 3 (attempt 1)
+[2026-02-05 15:11:51,981: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[29793619-6584-463f-8f2f-b3fbc4f9d836] received
+[2026-02-05 15:11:51,982: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[ae82d896-0f56-4577-8d64-ad028ab821fb] received
+[2026-02-05 15:11:51,982: INFO/ForkPoolWorker-2] Starting sync for site 4 (attempt 1)
+[2026-02-05 15:11:51,982: INFO/ForkPoolWorker-1] Syncing site 2
+[2026-02-05 15:11:51,983: INFO/ForkPoolWorker-10] Starting sync for site 6 (attempt 1)
+[2026-02-05 15:11:51,983: INFO/ForkPoolWorker-9] Syncing site 3
+[2026-02-05 15:11:51,983: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_all_sites_task[69eece13-5581-4bbd-80ed-86a4f542dc69] succeeded in 0.006342624954413623s: None
+[2026-02-05 15:11:51,983: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[5b406549-911e-4297-92ff-f159dd014957] received
+[2026-02-05 15:11:51,984: INFO/ForkPoolWorker-2] Syncing site 4
+[2026-02-05 15:11:51,984: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[b8f0f805-17c5-41c4-b058-b6e2100c3a6d] received
+[2026-02-05 15:11:51,984: INFO/ForkPoolWorker-8] Starting sync for site 7 (attempt 1)
+[2026-02-05 15:11:51,984: INFO/ForkPoolWorker-10] Syncing site 6
+[2026-02-05 15:11:51,985: INFO/ForkPoolWorker-3] Starting sync for site 10 (attempt 1)
+[2026-02-05 15:11:51,986: INFO/ForkPoolWorker-8] Syncing site 7
+[2026-02-05 15:11:51,987: INFO/ForkPoolWorker-3] Syncing site 10
+[2026-02-05 15:11:53,046: INFO/ForkPoolWorker-10] HTTP Request: GET https://colosseum-rome.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,142: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,166: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,213: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,227: INFO/ForkPoolWorker-8] HTTP Request: GET https://decks-nyc.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,240: INFO/ForkPoolWorker-3] HTTP Request: GET https://harrypotter-studio.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,533: INFO/ForkPoolWorker-10] HTTP Request: GET https://colosseum-rome.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,539: INFO/ForkPoolWorker-10] Sync completed for site 6, synced 1 submissions
+[2026-02-05 15:11:53,540: INFO/ForkPoolWorker-10] Successfully synced site 6 (Colosseum Rome)
+[2026-02-05 15:11:53,541: INFO/ForkPoolWorker-10] Task app.tasks.sync_tasks.sync_single_site_task[ae82d896-0f56-4577-8d64-ad028ab821fb] succeeded in 1.5589219160028733s: None
+[2026-02-05 15:11:53,700: INFO/ForkPoolWorker-8] HTTP Request: GET https://decks-nyc.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,706: INFO/ForkPoolWorker-8] Sync completed for site 7, synced 0 submissions
+[2026-02-05 15:11:53,706: INFO/ForkPoolWorker-8] Successfully synced site 7 (Decks NYC)
+[2026-02-05 15:11:53,708: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_single_site_task[5b406549-911e-4297-92ff-f159dd014957] succeeded in 1.723849166999571s: None
+[2026-02-05 15:11:53,782: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,783: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,789: INFO/ForkPoolWorker-9] Sync completed for site 3, synced 2 submissions
+[2026-02-05 15:11:53,790: INFO/ForkPoolWorker-1] Sync completed for site 2, synced 1 submissions
+[2026-02-05 15:11:53,790: INFO/ForkPoolWorker-9] Successfully synced site 3 (Alhambra Palace)
+[2026-02-05 15:11:53,790: INFO/ForkPoolWorker-1] Successfully synced site 2 (Dubrovnik Tickets)
+[2026-02-05 15:11:53,791: INFO/ForkPoolWorker-9] Task app.tasks.sync_tasks.sync_single_site_task[b4c1267a-61a3-4513-9de1-78fea7340d53] succeeded in 1.8106188329984434s: None
+[2026-02-05 15:11:53,791: INFO/ForkPoolWorker-1] Task app.tasks.sync_tasks.sync_single_site_task[8a03ea5f-e642-4004-a1b9-f50d933d4628] succeeded in 1.8114073330070823s: None
+[2026-02-05 15:11:53,851: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,858: INFO/ForkPoolWorker-2] Sync completed for site 4, synced 0 submissions
+[2026-02-05 15:11:53,858: INFO/ForkPoolWorker-2] Successfully synced site 4 (Belvedere Tickets)
+[2026-02-05 15:11:53,860: INFO/ForkPoolWorker-2] Task app.tasks.sync_tasks.sync_single_site_task[29793619-6584-463f-8f2f-b3fbc4f9d836] succeeded in 1.8781700829858892s: None
+[2026-02-05 15:11:53,881: INFO/ForkPoolWorker-3] HTTP Request: GET https://harrypotter-studio.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:11:53,887: INFO/ForkPoolWorker-3] Sync completed for site 10, synced 0 submissions
+[2026-02-05 15:11:53,887: INFO/ForkPoolWorker-3] Successfully synced site 10 (Harrypotter Studio)
+[2026-02-05 15:11:53,888: INFO/ForkPoolWorker-3] Task app.tasks.sync_tasks.sync_single_site_task[b8f0f805-17c5-41c4-b058-b6e2100c3a6d] succeeded in 1.903611625020858s: None
+[2026-02-05 15:12:28,490: INFO/MainProcess] Task app.tasks.sync_tasks.sync_all_sites_task[30d23204-024d-4236-bea5-932502df9d21] received
+[2026-02-05 15:12:28,499: INFO/ForkPoolWorker-8] Dispatching sync for 9 active sites
+[2026-02-05 15:12:28,504: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[019e54e3-6107-4dff-bac3-a6ebb3fb342c] received
+[2026-02-05 15:12:28,504: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[e9631a94-d932-4af3-8100-766dafa8c3ee] received
+[2026-02-05 15:12:28,505: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[92af7b05-4df6-404c-8bf6-3b0f3946f7cc] received
+[2026-02-05 15:12:28,506: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[574d10e0-d37a-4c35-b3f6-aa1a3971a813] received
+[2026-02-05 15:12:28,507: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[fa8d2533-0efb-4ef3-ad94-21760ecff9d9] received
+[2026-02-05 15:12:28,509: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[ebd4aa0d-d254-4fde-b480-c6c1252a9b76] received
+[2026-02-05 15:12:28,508: INFO/ForkPoolWorker-1] Starting sync for site 2 (attempt 1)
+[2026-02-05 15:12:28,509: INFO/ForkPoolWorker-2] Starting sync for site 4 (attempt 1)
+[2026-02-05 15:12:28,509: INFO/ForkPoolWorker-9] Starting sync for site 3 (attempt 1)
+[2026-02-05 15:12:28,510: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_all_sites_task[30d23204-024d-4236-bea5-932502df9d21] succeeded in 0.017977917043026537s: None
+[2026-02-05 15:12:28,510: INFO/ForkPoolWorker-10] Starting sync for site 5 (attempt 1)
+[2026-02-05 15:12:28,510: INFO/ForkPoolWorker-3] Starting sync for site 6 (attempt 1)
+[2026-02-05 15:12:28,512: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[25e1cb4c-6e5b-4d46-aded-74b14e6fa391] received
+[2026-02-05 15:12:28,513: INFO/ForkPoolWorker-8] Starting sync for site 9 (attempt 1)
+[2026-02-05 15:12:28,514: INFO/MainProcess] Task app.tasks.sync_tasks.sync_single_site_task[7d47e754-81b9-438b-abca-56e4582e01ee] received
+[2026-02-05 15:12:28,514: INFO/ForkPoolWorker-4] Starting sync for site 7 (attempt 1)
+[2026-02-05 15:12:28,519: INFO/ForkPoolWorker-8] Syncing site 9
+[2026-02-05 15:12:28,519: INFO/ForkPoolWorker-5] Starting sync for site 10 (attempt 1)
+[2026-02-05 15:12:28,522: INFO/ForkPoolWorker-2] Syncing site 4
+[2026-02-05 15:12:28,522: INFO/ForkPoolWorker-1] Syncing site 2
+[2026-02-05 15:12:28,523: INFO/ForkPoolWorker-3] Syncing site 6
+[2026-02-05 15:12:28,523: INFO/ForkPoolWorker-9] Syncing site 3
+[2026-02-05 15:12:28,523: INFO/ForkPoolWorker-10] Syncing site 5
+[2026-02-05 15:12:28,530: INFO/ForkPoolWorker-4] Syncing site 7
+[2026-02-05 15:12:28,536: INFO/ForkPoolWorker-5] Syncing site 10
+[2026-02-05 15:12:29,463: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,550: INFO/ForkPoolWorker-8] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,613: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,699: INFO/ForkPoolWorker-4] HTTP Request: GET https://decks-nyc.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,733: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,738: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,811: INFO/ForkPoolWorker-5] HTTP Request: GET https://harrypotter-studio.com/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,861: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/wp/v2/users/me "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,864: INFO/ForkPoolWorker-10] HTTP Request: GET https://cappadocia-tours.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,878: INFO/ForkPoolWorker-10] Sync completed for site 5, synced 0 submissions
+[2026-02-05 15:12:29,879: INFO/ForkPoolWorker-10] Successfully synced site 5 (Cappadocia Tours)
+[2026-02-05 15:12:29,882: INFO/ForkPoolWorker-10] Task app.tasks.sync_tasks.sync_single_site_task[574d10e0-d37a-4c35-b3f6-aa1a3971a813] succeeded in 1.3733086250140332s: None
+[2026-02-05 15:12:29,959: INFO/ForkPoolWorker-8] HTTP Request: GET https://duomodimilano-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:12:29,966: INFO/ForkPoolWorker-8] Sync completed for site 9, synced 0 submissions
+[2026-02-05 15:12:29,968: INFO/ForkPoolWorker-8] Successfully synced site 9 (Duodimilano Tickets)
+[2026-02-05 15:12:29,969: INFO/ForkPoolWorker-8] Task app.tasks.sync_tasks.sync_single_site_task[25e1cb4c-6e5b-4d46-aded-74b14e6fa391] succeeded in 1.4561866659787484s: None
+[2026-02-05 15:12:30,113: INFO/ForkPoolWorker-4] HTTP Request: GET https://decks-nyc.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:12:30,120: INFO/ForkPoolWorker-4] Sync completed for site 7, synced 0 submissions
+[2026-02-05 15:12:30,121: INFO/ForkPoolWorker-4] Successfully synced site 7 (Decks NYC)
+[2026-02-05 15:12:30,124: INFO/ForkPoolWorker-4] Task app.tasks.sync_tasks.sync_single_site_task[ebd4aa0d-d254-4fde-b480-c6c1252a9b76] succeeded in 1.6105569160426967s: None
+[2026-02-05 15:12:30,184: INFO/ForkPoolWorker-3] HTTP Request: GET https://colosseum-rome.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:12:30,191: INFO/ForkPoolWorker-3] Sync completed for site 6, synced 1 submissions
+[2026-02-05 15:12:30,192: INFO/ForkPoolWorker-3] Successfully synced site 6 (Colosseum Rome)
+[2026-02-05 15:12:30,195: INFO/ForkPoolWorker-3] Task app.tasks.sync_tasks.sync_single_site_task[fa8d2533-0efb-4ef3-ad94-21760ecff9d9] succeeded in 1.6857742909924127s: None
+[2026-02-05 15:12:30,362: INFO/ForkPoolWorker-2] HTTP Request: GET https://belvedere-tickets.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:12:30,363: INFO/ForkPoolWorker-1] HTTP Request: GET https://dubrovnik-tickets.co/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:12:30,367: INFO/ForkPoolWorker-2] Sync completed for site 4, synced 0 submissions
+[2026-02-05 15:12:30,368: INFO/ForkPoolWorker-2] Successfully synced site 4 (Belvedere Tickets)
+[2026-02-05 15:12:30,370: INFO/ForkPoolWorker-2] Task app.tasks.sync_tasks.sync_single_site_task[92af7b05-4df6-404c-8bf6-3b0f3946f7cc] succeeded in 1.8618046249612235s: None
+[2026-02-05 15:12:30,373: INFO/ForkPoolWorker-1] Sync completed for site 2, synced 1 submissions
+[2026-02-05 15:12:30,374: INFO/ForkPoolWorker-1] Successfully synced site 2 (Dubrovnik Tickets)
+[2026-02-05 15:12:30,376: INFO/ForkPoolWorker-1] Task app.tasks.sync_tasks.sync_single_site_task[019e54e3-6107-4dff-bac3-a6ebb3fb342c] succeeded in 1.8683828750508837s: None
+[2026-02-05 15:12:30,469: INFO/ForkPoolWorker-5] HTTP Request: GET https://harrypotter-studio.com/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:12:30,478: INFO/ForkPoolWorker-5] Sync completed for site 10, synced 0 submissions
+[2026-02-05 15:12:30,479: INFO/ForkPoolWorker-5] Successfully synced site 10 (Harrypotter Studio)
+[2026-02-05 15:12:30,482: INFO/ForkPoolWorker-5] Task app.tasks.sync_tasks.sync_single_site_task[7d47e754-81b9-438b-abca-56e4582e01ee] succeeded in 1.9645646249991842s: None
+[2026-02-05 15:12:30,506: INFO/ForkPoolWorker-9] HTTP Request: GET https://alhambra-palace.org/wp-json/fluentform/v1/submissions?form_id=1&page=1&per_page=50 "HTTP/1.1 200 OK"
+[2026-02-05 15:12:30,513: INFO/ForkPoolWorker-9] Sync completed for site 3, synced 2 submissions
+[2026-02-05 15:12:30,514: INFO/ForkPoolWorker-9] Successfully synced site 3 (Alhambra Palace)
+[2026-02-05 15:12:30,517: INFO/ForkPoolWorker-9] Task app.tasks.sync_tasks.sync_single_site_task[e9631a94-d932-4af3-8100-766dafa8c3ee] succeeded in 2.0084110000170767s: None
+
+worker: Hitting Ctrl+C again will terminate all running tasks![2026-02-05 15:14:19,619: CRITICAL/MainProcess] Unrecoverable error: RuntimeError("reentrant call inside <_io.BufferedWriter name='<stderr>'>")
+Traceback (most recent call last):
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/worker.py", line 202, in start
+    self.blueprint.start(self)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+           ^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/consumer/consumer.py", line 742, in start
+    c.loop(*c.loop_args())
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/kombu/asynchronous/hub.py", line 321, in create_loop
+    events = poll(poll_timeout)
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/kombu/utils/eventio.py", line 216, in poll
+    event_list = self._quick_poll(timeout)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/apps/worker.py", line 288, in _handle_request
+    callback(worker)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/apps/worker.py", line 320, in on_SIGINT
+    safe_say('worker: Hitting Ctrl+C again will terminate all running tasks!')
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/apps/worker.py", line 81, in safe_say
+    print(f'\n{msg}', file=sys.__stderr__, flush=True)
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/apps/worker.py", line 289, in _handle_request
+    safe_say(f'worker: {how} shutdown (MainProcess)')
+  File "/Users/deepak/Desktop/firestormInternet/fluent-forms-management/backend/venv/lib/python3.12/site-packages/celery/apps/worker.py", line 81, in safe_say
+    print(f'\n{msg}', file=sys.__stderr__, flush=True)
+RuntimeError: reentrant call inside <_io.BufferedWriter name='<stderr>'>

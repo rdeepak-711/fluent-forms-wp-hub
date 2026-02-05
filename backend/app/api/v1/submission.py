@@ -19,10 +19,11 @@ def get_submissions(
     limit: int = Query(default=100, ge=1, le=500),
     status: Optional[str] = None,
     site_id: Optional[int] = None,
+    is_active: bool = Query(default=True),
     db: Session = Depends(deps.get_db),
     current_user: models.User = Depends(deps.get_current_user),
 ):
-    query = db.query(models.Submission)
+    query = db.query(models.Submission).filter(models.Submission.is_active == is_active)
     if status is not None:
         query = query.filter(models.Submission.status == status)
     if site_id is not None:

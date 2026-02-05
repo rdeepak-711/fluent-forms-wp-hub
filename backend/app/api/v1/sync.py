@@ -60,8 +60,8 @@ def sync_site_submissions(db: Session, site: models.Site, redis_client: Redis) -
                 cached_id = redis_client.get(forms_cache_key)
                 if cached_id:
                     target_form_id = int(cached_id)
-            except Exception:
-                logger.warning("Redis error reading form cache for site %s", site.id)
+            except Exception as e:
+                logger.warning("Redis error reading form cache for site %s: %s", site.id, e)
 
         target_form = None # We might not have the full object, but we have the ID
 
@@ -91,7 +91,8 @@ def sync_site_submissions(db: Session, site: models.Site, redis_client: Redis) -
             # Heuristic: Find first form with "contact" in title
             for form in forms:
                 title = form.get("title", "").lower()
-                if "contact form" in title or title == "contact":
+                if "contact" in title:
+                    logger.info("Found candidate form: %s (ID: %s)", title, form["id"])
                     target_form = form
                     target_form_id = form["id"]
                     
@@ -101,17 +102,30 @@ def sync_site_submissions(db: Session, site: models.Site, redis_client: Redis) -
                     
                     try:
                         redis_client.setex(f"site:{site.id}:contact_form_id", 3600, target_form_id)
-                    except Exception:
-                         logger.warning("Redis error setting form cache for site %s", site.id)
+                    except Exception as e:
+                         logger.warning("Redis error setting form cache for site %s: %s", site.id, e)
                     break
             
             if not target_form and not target_form_id:
+                 # Update last_synced_at even if no form found, to indicate check was performed
+                 try:
+                     site.last_synced_at = datetime.now(timezone.utc)
+                     db.add(site)
+                     db.commit()
+                 except Exception:
+                     db.rollback()
+                     logger.warning("Failed to update last_synced_at for site %s", site.id)
+
+                 # Log available forms to help debugging
+                 available_titles = [f.get("title", "Unknown") for f in forms]
+                 logger.warning("No 'Contact' form found for site %s. Available: %s", site.id, available_titles)
+
                  return schemas.SiteSyncResponse(
                     site_id=site.id,
                     forms_found=forms_found,
                     submissions_synced=0,
                     status="success", # Success but 0 synced
-                    message="No 'Contact Form' found to sync",
+                    message=f"No 'Contact' form found. Available: {', '.join(available_titles[:3])}...",
                 )
         else:
              forms_found = 1 # We skipped fetching list, so we assume 1 found

@@ -22,6 +22,8 @@ class EmailResponse(BaseModel):
     status: Optional[str] = None
     message_id: Optional[str] = None
     user_id: Optional[int] = None
+    gmail_message_id: Optional[str] = None
+    gmail_thread_id: Optional[str] = None
     created_at: datetime
 
     class Config:

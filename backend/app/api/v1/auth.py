@@ -158,3 +158,70 @@ def register_user(
     db.commit()
     db.refresh(user)
     return user
+
+
+@router.get("/me", response_model=schemas.UserResponse)
+def get_current_user_profile(
+    current_user: models.User = Depends(deps.get_current_user),
+):
+    """
+    Get current authenticated user's profile.
+    """
+    return current_user
+
+
+@router.put("/me/email", response_model=schemas.UserResponse)
+def update_current_user_email(
+    email_update: schemas.EmailUpdateRequest,
+    db: Session = Depends(deps.get_db),
+    current_user: models.User = Depends(deps.get_current_user),
+):
+    """
+    Update current user's email. Requires password confirmation.
+    """
+    # Verify current password
+    if not security.verify_password(email_update.current_password, current_user.hashed_password):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect password",
+        )
+
+    # Check if new email is already taken
+    existing = db.query(models.User).filter(
+        models.User.email == email_update.new_email,
+        models.User.id != current_user.id
+    ).first()
+    if existing:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="A user with this email already exists",
+        )
+
+    current_user.email = email_update.new_email
+    db.commit()
+    db.refresh(current_user)
+    logger.info(f"User {current_user.id} updated email to {email_update.new_email}")
+    return current_user
+
+
+@router.put("/me/password", response_model=schemas.MessageResponse)
+def update_current_user_password(
+    password_update: schemas.PasswordChangeRequest,
+    db: Session = Depends(deps.get_db),
+    current_user: models.User = Depends(deps.get_current_user),
+):
+    """
+    Change current user's password. Requires current password confirmation.
+    """
+    # Verify current password
+    if not security.verify_password(password_update.current_password, current_user.hashed_password):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect current password",
+        )
+
+    # Hash and update new password
+    current_user.hashed_password = security.get_password_hash(password_update.new_password)
+    db.commit()
+    logger.info(f"User {current_user.id} changed password")
+    return schemas.MessageResponse(message="Password updated successfully")

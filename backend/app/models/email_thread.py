@@ -19,6 +19,9 @@ class EmailThread(Base):
     status = Column(String(20), nullable=True)
     created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc), nullable=False)
 
+    gmail_message_id = Column(String(255), nullable=True, unique=True, index=True)
+    gmail_thread_id = Column(String(255), nullable=True, index=True)
+
     __table_args__ = (
         CheckConstraint("direction IN ('inbound', 'outbound')", name="ck_email_threads_direction"),
     )

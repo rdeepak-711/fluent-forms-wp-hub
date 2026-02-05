@@ -23,8 +23,8 @@ class SiteCreate(BaseModel):
 class SiteUpdate(BaseModel):
     name: Optional[str] = Field(default=None, min_length=1, max_length=255)
     url: Optional[str] = Field(default=None, min_length=1, max_length=255)
-    api_key: Optional[str] = Field(default=None, min_length=1, max_length=255)
-    api_secret: Optional[str] = Field(default=None, min_length=1, max_length=255)
+    username: Optional[str] = Field(default=None, min_length=1, max_length=255)
+    application_password: Optional[str] = Field(default=None, min_length=1, max_length=255)
     contact_form_id: Optional[int] = None
     is_active: Optional[bool] = None
 
@@ -46,6 +46,16 @@ class SiteResponse(BaseModel):
     is_active: bool
     last_synced_at: Optional[datetime] = None
     contact_form_id: Optional[int] = None
+
+    class Config:
+        from_attributes = True
+
+
+class SiteAdminResponse(SiteResponse):
+    """Extended response for admin that includes username and timestamps."""
+    username: str
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True

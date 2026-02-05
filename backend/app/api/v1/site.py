@@ -33,6 +33,26 @@ def get_sites(
     return sites
 
 
+@router.get("/all", response_model=list[schemas.SiteAdminResponse])
+def get_all_sites(
+    skip: int = 0,
+    limit: int = 100,
+    db: Session = Depends(deps.get_db),
+    current_user: models.User = Depends(deps.get_current_admin_user),
+):
+    """
+    Get ALL sites including soft-deleted ones. Admin-only.
+    """
+    logger.info(f"Admin listing all sites with skip={skip} and limit={limit}")
+    sites = (
+        db.query(models.Site)
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
+    return sites
+
+
 @router.get("/{site_id}", response_model=schemas.SiteResponse)
 def get_site(
     site_id: int,
@@ -149,6 +169,34 @@ def delete_site(
         db.rollback()
         logger.exception("Failed to delete site %s", site_id)
         raise HTTPException(status_code=500, detail="Failed to delete site")
+
+
+@router.post("/{site_id}/restore", response_model=schemas.SiteResponse)
+def restore_site(
+    site_id: int,
+    db: Session = Depends(deps.get_db),
+    current_user: models.User = Depends(deps.get_current_admin_user),
+):
+    """
+    Restore a soft-deleted site. Admin-only.
+    """
+    logger.info(f"Restoring site with id={site_id}")
+    db_site = db.query(models.Site).filter(
+        models.Site.is_active.is_(False),
+        models.Site.id == site_id,
+    ).first()
+    if not db_site:
+        raise HTTPException(status_code=404, detail="Inactive site not found")
+
+    try:
+        db_site.is_active = True
+        db.commit()
+        db.refresh(db_site)
+        return db_site
+    except Exception:
+        db.rollback()
+        logger.exception("Failed to restore site %s", site_id)
+        raise HTTPException(status_code=500, detail="Failed to restore site")
 
 
 @router.post("/{site_id}/test-connection", response_model=schemas.SiteSyncResponse)

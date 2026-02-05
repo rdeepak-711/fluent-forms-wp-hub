@@ -378,22 +378,22 @@ Delete: `src/App.css`
 
 ### Task 7.1 — Install Dependencies & Configure Build
 
-- [ ] Run `npm install react-router-dom axios`
-- [ ] Run `npm install -D tailwindcss @tailwindcss/vite`
-- [ ] Modify `frontend/vite.config.ts`:
+- [x] Run `npm install react-router-dom axios`
+- [x] Run `npm install -D tailwindcss @tailwindcss/vite`
+- [x] Modify `frontend/vite.config.ts`:
   - Add `tailwindcss()` plugin from `@tailwindcss/vite`
   - Add `server.proxy`: forward `/api` → `http://localhost:8000` (avoids CORS in dev)
-- [ ] Modify `frontend/src/index.css`: replace contents with `@import "tailwindcss";`
-- [ ] Delete `frontend/src/App.css`
-- [ ] Modify `frontend/index.html`: change `<title>` to `Fluent Forms Hub`
+- [x] Modify `frontend/src/index.css`: replace contents with `@import "tailwindcss";`
+- [x] Delete `frontend/src/App.css`
+- [x] Modify `frontend/index.html`: change `<title>` to `Fluent Forms Hub`
 - **Verify**: `npm run dev` starts, Tailwind classes work, `/api/health` proxies to backend
 
 ---
 
 ### Task 7.2 — TypeScript Types
 
-- [ ] Create `frontend/src/types/index.ts`
-- [ ] Define interfaces:
+- [x] Create `frontend/src/types/index.ts`
+- [x] Define interfaces:
   - `LoginCredentials` — `{username: string, password: string}`
   - `AuthTokens` — `{access_token, refresh_token, token_type}`
   - `Site` — `{id, name, url, is_active, last_synced_at, contact_form_id}`
@@ -407,22 +407,22 @@ Delete: `src/App.css`
 
 ### Task 7.3 — API Client Service Layer
 
-- [ ] Create `frontend/src/api/client.ts` — Axios instance:
+- [x] Create `frontend/src/api/client.ts` — Axios instance:
   - Base URL: `/api/v1` (proxied by Vite in dev)
   - Request interceptor: attach `Authorization: Bearer <token>` from `localStorage`
   - Response interceptor: on 401/403, clear tokens + `window.location.href = '/login'`
-- [ ] Create `frontend/src/api/auth.ts`:
+- [x] Create `frontend/src/api/auth.ts`:
   - `login(username, password)` → POST `/auth/login/access-token?username=X&password=Y` (query params, matching backend `Depends()`)
-- [ ] Create `frontend/src/api/sites.ts`:
+- [x] Create `frontend/src/api/sites.ts`:
   - `getSites()` → GET `/sites/`
-- [ ] Create `frontend/src/api/submissions.ts`:
+- [x] Create `frontend/src/api/submissions.ts`:
   - `getSubmissions(siteId?)` → GET `/submissions/?site_id=X`
   - `getSubmission(id)` → GET `/submissions/{id}`
   - `updateSubmission(id, data)` → PUT `/submissions/{id}`
-- [ ] Create `frontend/src/api/emails.ts`:
+- [x] Create `frontend/src/api/emails.ts`:
   - `getEmails(submissionId)` → GET `/emails/?submission_id=X`
   - `sendEmail(data)` → POST `/emails/`
-- [ ] Create `frontend/src/api/sync.ts`:
+- [x] Create `frontend/src/api/sync.ts`:
   - `syncSite(siteId)` → POST `/sync/{siteId}`
   - `syncAllSites()` → POST `/sync/`
 
@@ -430,17 +430,17 @@ Delete: `src/App.css`
 
 ### Task 7.4 — Layout Shell + Router + Stubs
 
-- [ ] Create `frontend/src/layouts/AppLayout.tsx`:
+- [x] Create `frontend/src/layouts/AppLayout.tsx`:
   - `flex h-screen` — sidebar (w-64, border-r) + main (flex-1, `<Outlet />`)
-- [ ] Rewrite `frontend/src/App.tsx` with router:
+- [x] Rewrite `frontend/src/App.tsx` with router:
   - `/login` → `LoginPage` (public, no layout)
   - `<ProtectedRoute>` wrapping `<AppLayout>`:
     - `/` → redirect to `/inbox`
     - `/inbox` → `SubmissionsList` (all sites)
     - `/site/:siteId` → `SubmissionsList` (filtered by site)
     - `/submission/:submissionId` → `SubmissionDetail`
-- [ ] Modify `frontend/src/main.tsx`: wrap `<App />` in `<AuthProvider>`
-- [ ] Create stub files (minimal `<div>` returns) for all components/pages so app compiles:
+- [x] Modify `frontend/src/main.tsx`: wrap `<App />` in `<AuthProvider>`
+- [x] Create stub files (minimal `<div>` returns) for all components/pages so app compiles:
   - `Sidebar.tsx`, `ProtectedRoute.tsx` (renders `<Outlet />`), `EmailThread.tsx`, `ComposePopup.tsx`
   - `SubmissionsList.tsx`, `SubmissionDetail.tsx`, `LoginPage.tsx`
   - `context/AuthContext.tsx` (no-op provider, reads token from localStorage)
@@ -450,10 +450,12 @@ Delete: `src/App.css`
 
 ### Task 7.5 — Sites Sidebar
 
-- [ ] Replace stub `frontend/src/components/Sidebar.tsx` with full implementation
-- [ ] Fetch sites via `getSites()` on mount
-- [ ] For each site, count unread submissions (`getSubmissions(siteId)` → filter `!is_read`)
-- [ ] Render:
+- [x] Replace stub `frontend/src/components/Sidebar.tsx` with full implementation
+- [x] Fetch sites via `getSites()` on mount
+- [x] For each site, count unread submissions (`getSubmissions(siteId)` → filter `!is_read`)
+- [x] Render: App title, "Sync All" button, "All Inboxes" link, Divider, List of Sites (with badges and per-site sync).
+- [x] **Verify**: Active site highlighted, sync works (triggers backend paths).
+- [x] Render:
   - App title "Fluent Forms Hub" at top
   - "Sync All Sites" button (calls `syncAllSites()`, re-fetches after)
   - "All Inboxes" `NavLink` → `/inbox` with total unread badge
@@ -467,36 +469,47 @@ Delete: `src/App.css`
 
 ### Task 7.6 — Submissions List (Inbox View)
 
-- [ ] Replace stub `frontend/src/pages/SubmissionsList.tsx`
-- [ ] Read `siteId` from URL params; if present, filter by site
-- [ ] Fetch submissions via `getSubmissions(siteId?)`
-- [ ] Render Gmail-style rows, each with:
+- [x] Replace stub `frontend/src/pages/SubmissionsList.tsx`
+- [x] Read `siteId` from URL params; if present, filter by site
+- [x] Fetch submissions via `getSubmissions(siteId?)`
+- [x] Render Gmail-style rows, each with:
   - Blue dot (unread indicator, `w-2.5 h-2.5 bg-blue-600 rounded-full`)
   - Submitter name (bold if unread, 192px fixed width, truncated)
   - Subject + message preview (truncated to ~80 chars, flex-1)
   - Relative date (`formatRelativeDate` — "3 min ago", "5h ago", "Mon", "Jan 15")
-- [ ] Unread rows: `font-semibold text-gray-900`; read rows: `text-gray-600 bg-gray-50/50`
-- [ ] On row click:
+- [x] Unread rows: `font-semibold text-gray-900`; read rows: `text-gray-600 bg-gray-50/50`
+- [x] On row click:
   1. Call `updateSubmission(id, {is_read: true})` — optimistic local state update
   2. Navigate to `/submission/{id}`
-- [ ] Re-fetch when `siteId` param changes
-- [ ] Loading and empty states
-- **API calls**: `GET /submissions/?site_id=X`, `PUT /submissions/{id}`
+- [x] Re-fetch when `siteId` param changes
+### Task 7.6 — Submission Lists & Detail Views
+
+- [x] Create `frontend/src/components/SubmissionTable.tsx` (dumb component):
+  - Props: `submissions`, `onRowClick`
+  - Columns: Status badge, Subject (bold if unread), Site, Date (relative)
+- [x] Implement `frontend/src/pages/SubmissionsList.tsx` (smart page):
+  - Fetch based on `siteId` (URL param)
+  - If no `siteId`, fetch all sites (parallel) and aggregate
+  - Render `SubmissionTable`
+- [x] Implement `frontend/src/pages/SubmissionDetail.tsx`:
+  - Fetch single submission via `getSubmission(id)`
+  - Layout: Left sidebar (Form Data parsed JSON), Right main (Stub `EmailThread`)
+- [x] **Verify**: Click sidebar site → table loads. Click row → detail loads.
 
 ---
 
 ### Task 7.7 — Submission Detail View
 
-- [ ] Replace stub `frontend/src/pages/SubmissionDetail.tsx`
-- [ ] Fetch submission + emails in parallel: `Promise.all([getSubmission(id), getEmails(id)])`
-- [ ] Mark as read if not already: `updateSubmission(id, {is_read: true})`
-- [ ] Render:
+- [x] Replace stub `frontend/src/pages/SubmissionDetail.tsx`
+- [x] Fetch submission + emails in parallel: `Promise.all([getSubmission(id), getEmails(id)])`
+- [x] Mark as read if not already: `updateSubmission(id, {is_read: true})`
+- [x] Render:
   - Top toolbar: back arrow (navigate -1), subject title, status badge (color-coded)
   - Original message card: submitter name, email, timestamp, full message body
   - Collapsible raw `data` JSON (`<details>` + `<pre>`)
-  - `<EmailThread emails={emails} />` component
+  - `<EmailThread emails={emails} />` component (with collapsible failed messages)
   - Bottom action bar: "Reply" button → opens `<ComposePopup />`
-- [ ] `handleEmailSent(newEmail)` callback: appends to local emails array, closes popup
+- [x] `handleEmailSent(newEmail)` callback: appends to local emails array, closes popup
 - **API calls**: `GET /submissions/{id}`, `GET /emails/?submission_id=X`, `PUT /submissions/{id}`
 
 ---
@@ -517,18 +530,18 @@ Delete: `src/App.css`
 
 ### Task 7.9 — Compose/Reply Popup
 
-- [ ] Replace stub `frontend/src/components/ComposePopup.tsx`
-- [ ] Position: `fixed bottom-0 right-6 w-[480px]` — Gmail-style floating window
-- [ ] Dark header bar: "New Message" + close (X) button
-- [ ] Fields:
+- [x] Replace stub `frontend/src/components/ComposePopup.tsx`
+- [x] Position: `fixed bottom-0 right-6 w-[480px]` — Gmail-style floating window
+- [x] Dark header bar: "New Message" + close (X) button
+- [x] Fields:
   - **To**: read-only input, pre-filled with `submission.submitter_email`
   - **Subject**: editable input, defaults to `Re: {submission.subject}`
   - **Body**: textarea (8 rows), placeholder "Write your reply..."
-- [ ] Send button: calls `sendEmail({submission_id, subject, body, direction: "outbound"})`
+- [x] Send button: calls `sendEmail({submission_id, subject, body, direction: "outbound"})`
   - On success: `onSent(newEmail)` → parent appends to thread, popup closes
   - On failure: inline error message
   - Validation: body must not be empty
-- [ ] Loading state on send button ("Sending...")
+- [x] Loading state on send button ("Sending...")
 - **API calls**: `POST /emails/`
 
 ---

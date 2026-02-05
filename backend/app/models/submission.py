@@ -11,7 +11,7 @@ class Submission(Base):
     site_id = Column(Integer, ForeignKey("sites.id"), nullable=False, index=True)
     fluent_form_id = Column(Integer)
     form_id = Column(Integer)
-    status = Column(String(255), default="pending", index=True)
+    status = Column(String(255), default="new", index=True)
     data = Column(JSON)
     
     # Parsed contact form fields
@@ -23,8 +23,9 @@ class Submission(Base):
     submitted_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
     locked_by = Column(Integer, ForeignKey("users.id"), nullable=True)
     locked_at = Column(DateTime(timezone=True), nullable=True)
-    is_read = Column(Boolean, default=False)
     is_active = Column(Boolean, default=True, nullable=False)
+
+    gmail_thread_id = Column(String(255), nullable=True, index=True)
     updated_at = Column(
         DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc),

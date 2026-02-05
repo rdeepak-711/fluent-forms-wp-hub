@@ -1,1 +1,13 @@
-[2026-02-02 15:51:58,527: INFO/MainProcess] beat: Starting...
+[2026-02-05 14:29:43,460: INFO/MainProcess] beat: Starting...
+[2026-02-05 14:30:00,007: INFO/MainProcess] Scheduler: Sending due task sync-all-sites-every-3-hours (app.tasks.sync_tasks.sync_all_sites_task)
+[2026-02-05 14:30:00,016: INFO/MainProcess] Scheduler: Sending due task poll-gmail-replies-every-3-hours (app.tasks.gmail_tasks.poll_gmail_replies_task)
+celery beat v5.3.4 (emerald-rush) is starting.
+__    -    ... __   -        _
+LocalTime -> 2026-02-05 14:29:43
+Configuration ->
+    . broker -> redis://localhost:6379/0
+    . loader -> celery.loaders.app.AppLoader
+    . scheduler -> celery.beat.PersistentScheduler
+    . db -> celerybeat-schedule
+    . logfile -> [stderr]@%INFO
+    . maxinterval -> 5.00 minutes (300s)

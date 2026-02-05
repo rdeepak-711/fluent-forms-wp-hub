@@ -7,7 +7,7 @@ celery_app = Celery(
     "worker",
     broker=settings.REDIS_URL,
     backend=settings.REDIS_URL,
-    include=["app.tasks.sync_tasks"],
+    include=["app.tasks.sync_tasks", "app.tasks.gmail_tasks"],
 )
 
 celery_app.conf.update(
@@ -19,8 +19,12 @@ celery_app.conf.update(
 )
 
 celery_app.conf.beat_schedule = {
-    "sync-all-sites-every-2-hours": {
+    "sync-all-sites-every-3-hours": {
         "task": "app.tasks.sync_tasks.sync_all_sites_task",
-        "schedule": crontab(minute=0, hour="*/2"),
+        "schedule": crontab(minute=0, hour="*/3"),
+    },
+    "poll-gmail-replies-every-3-hours": {
+        "task": "app.tasks.gmail_tasks.poll_gmail_replies_task",
+        "schedule": crontab(minute=0, hour=f"*/{settings.GMAIL_POLL_INTERVAL_HOURS}"),
     },
 }

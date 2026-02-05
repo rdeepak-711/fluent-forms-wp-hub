@@ -2158,3 +2158,165 @@
 {
   "error": "WordPress API error (404): {\"code\":\"rest_no_route\",\"message\":\"No route was found matching the URL and request method.\",\"data\":{\"status\":404}}"
 }
+2026-02-03T10:14:59.928Z [INFO] [SYSTEM] Using native fetch API
+2026-02-03T10:14:59.929Z [DEBUG] [PROXY] System proxy support disabled (USE_SYSTEM_PROXY=false)
+2026-02-03T10:14:59.929Z [INFO] [PROXY] Starting WordPress MCP Proxy with enhanced authentication
+2026-02-03T10:14:59.929Z [INFO] [PROXY] MCP server connected to transport successfully
+2026-02-03T10:14:59.931Z [INFO] [INIT] 📩 Client Initialize Request received
+2026-02-03T10:14:59.931Z [DEBUG] [INIT] Initialize request details:
+{
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "roots": {
+        "listChanged": true
+      }
+    },
+    "clientInfo": {
+      "name": "antigravity-client",
+      "version": "v1.0.0"
+    }
+  }
+}
+2026-02-03T10:14:59.931Z [INFO] [INIT] 🔄 Initializing WordPress connection with client parameters
+2026-02-03T10:14:59.931Z [INFO] [TRANSPORT_DETECT] 🔍 Starting transport detection and WordPress API initialization...
+2026-02-03T10:14:59.932Z [INFO] [TRANSPORT_DETECT] 📋 Added proxy information to clientInfo
+{
+  "originalClient": "antigravity-client",
+  "proxyName": "@automattic/mcp-wordpress-remote",
+  "proxyVersion": "0.2.19"
+}
+2026-02-03T10:14:59.932Z [INFO] [TRANSPORT_DETECT] 📡 Attempting JSON-RPC transport...
+2026-02-03T10:14:59.932Z [DEBUG] [SESSION] MCP JSON-RPC message being sent to WordPress:
+{
+  "jsonrpc": "2.0",
+  "method": "initialize",
+  "id": 1,
+  "original_mcp_id": "none",
+  "session_id": "not-yet-obtained"
+}
+2026-02-03T10:14:59.932Z [INFO] [TRANSPORT_DETECT] Sending initialization message via JSON-RPC:
+{
+  "method": "initialize",
+  "id": 1,
+  "jsonrpc": "2.0",
+  "hasParams": true
+}
+2026-02-03T10:14:59.932Z [DEBUG] [TRANSPORT_DETECT] Complete JSON-RPC init message:
+{
+  "jsonrpc": "2.0",
+  "method": "initialize",
+  "id": 1,
+  "params": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "roots": {
+        "listChanged": true
+      }
+    },
+    "clientInfo": {
+      "name": "antigravity-client",
+      "version": "v1.0.0",
+      "proxied": {
+        "name": "@automattic/mcp-wordpress-remote",
+        "version": "0.2.19"
+      }
+    },
+    "_proxy_request_id": 1
+  }
+}
+2026-02-03T10:14:59.932Z [INFO] [API] Request method: initialize (JSON-RPC)
+2026-02-03T10:14:59.932Z [DEBUG] [API] JSON-RPC message: {"jsonrpc":"2.0","method":"initialize","id":1,"params":{"protocolVersion":"2025-06-18","capabilities":{"roots":{"listChanged":true}},"clientInfo":{"name":"antigravity-client","version":"v1.0.0","proxied":{"name":"@automattic/mcp-wordpress-remote","version":"0.2.19"}},"_proxy_request_id":1}}
+2026-02-03T10:14:59.932Z [INFO] [AUTH] Using JWT token authentication
+2026-02-03T10:14:59.932Z [DEBUG] [AUTH] Token length: 247
+2026-02-03T10:14:59.932Z [DEBUG] [API] Environment: development
+2026-02-03T10:14:59.932Z [DEBUG] [API] Base API URL: https://alcatraz-island.com
+2026-02-03T10:14:59.932Z [DEBUG] [API] Final requesting URL: https://alcatraz-island.com/?rest_route=/wp/v2/wpmcp
+2026-02-03T10:14:59.932Z [DEBUG] [API] Using Authorization header for authentication
+2026-02-03T10:14:59.932Z [INFO] [API] Sending request to WordPress API...
+2026-02-03T10:14:59.932Z [DEBUG] [API] Request URL: https://alcatraz-island.com/?rest_route=/wp/v2/wpmcp
+2026-02-03T10:14:59.932Z [DEBUG] [API] Request method: POST
+2026-02-03T10:15:00.891Z [DEBUG] [API] Response status: 404
+2026-02-03T10:15:00.893Z [ERROR] [API] API error response: {"code":"rest_no_route","message":"No route was found matching the URL and request method.","data":{"status":404}}
+2026-02-03T10:15:00.893Z [WARN] [TRANSPORT_DETECT] ⚠️  JSON-RPC transport failed, trying simple transport...
+2026-02-03T10:15:00.893Z [DEBUG] [TRANSPORT_DETECT] JSON-RPC error details:
+{
+  "name": "APIError",
+  "statusCode": 404,
+  "endpoint": "https://alcatraz-island.com/?rest_route=/wp/v2/wpmcp",
+  "response": "{\"code\":\"rest_no_route\",\"message\":\"No route was found matching the URL and request method.\",\"data\":{\"status\":404}}"
+}
+2026-02-03T10:15:00.893Z [INFO] [TRANSPORT_DETECT] Sending initialization message via Simple transport:
+{
+  "method": "initialize",
+  "hasParams": true
+}
+2026-02-03T10:15:00.893Z [DEBUG] [TRANSPORT_DETECT] Complete Simple init message:
+{
+  "method": "initialize",
+  "protocolVersion": "2025-06-18",
+  "capabilities": {
+    "roots": {
+      "listChanged": true
+    }
+  },
+  "clientInfo": {
+    "name": "antigravity-client",
+    "version": "v1.0.0",
+    "proxied": {
+      "name": "@automattic/mcp-wordpress-remote",
+      "version": "0.2.19"
+    }
+  }
+}
+2026-02-03T10:15:00.893Z [INFO] [API] Request method: initialize (Simple)
+2026-02-03T10:15:00.893Z [DEBUG] [API] Simple request: {"method":"initialize","protocolVersion":"2025-06-18","capabilities":{"roots":{"listChanged":true}},"clientInfo":{"name":"antigravity-client","version":"v1.0.0","proxied":{"name":"@automattic/mcp-wordpress-remote","version":"0.2.19"}}}
+2026-02-03T10:15:00.893Z [INFO] [AUTH] Using JWT token authentication
+2026-02-03T10:15:00.894Z [DEBUG] [AUTH] Token length: 247
+2026-02-03T10:15:00.894Z [DEBUG] [API] Environment: development
+2026-02-03T10:15:00.894Z [DEBUG] [API] Base API URL: https://alcatraz-island.com
+2026-02-03T10:15:00.894Z [DEBUG] [API] Final requesting URL: https://alcatraz-island.com/?rest_route=/wp/v2/wpmcp
+2026-02-03T10:15:00.894Z [DEBUG] [API] Using Authorization header for authentication
+2026-02-03T10:15:00.894Z [INFO] [API] Sending request to WordPress API...
+2026-02-03T10:15:00.894Z [DEBUG] [API] Request URL: https://alcatraz-island.com/?rest_route=/wp/v2/wpmcp
+2026-02-03T10:15:00.894Z [DEBUG] [API] Request method: POST
+2026-02-03T10:15:01.263Z [DEBUG] [API] Response status: 404
+2026-02-03T10:15:01.264Z [ERROR] [API] API error response: {"code":"rest_no_route","message":"No route was found matching the URL and request method.","data":{"status":404}}
+2026-02-03T10:15:01.264Z [ERROR] [TRANSPORT_DETECT] ❌ Both JSON-RPC and simple transports failed
+{
+  "name": "APIError",
+  "statusCode": 404,
+  "endpoint": "https://alcatraz-island.com/?rest_route=/wp/v2/wpmcp",
+  "response": "{\"code\":\"rest_no_route\",\"message\":\"No route was found matching the URL and request method.\",\"data\":{\"status\":404}}"
+}
+2026-02-03T10:15:01.264Z [ERROR] [INIT] ❌ Failed to initialize WordPress connection with client parameters
+{}
+2026-02-03T10:15:01.264Z [WARN] [INIT] ⚠️ Using fallback initialize response
+2026-02-03T10:15:01.265Z [INFO] [CLIENT] 📩 Client Message: ListTools
+2026-02-03T10:15:01.265Z [INFO] [CLIENT] Request ID: none | Method: tools/list
+2026-02-03T10:15:01.265Z [INFO] [CLIENT] No request parameters
+2026-02-03T10:15:01.265Z [DEBUG] [CLIENT] Session context - ID: none, Transport: detecting, Counter: 1
+2026-02-03T10:15:01.265Z [DEBUG] [CLIENT] Complete client request object:
+{
+  "method": "tools/list",
+  "params": {}
+}
+2026-02-03T10:15:01.265Z [DEBUG] [MCP] Processing ListToolsRequest
+2026-02-03T10:15:01.265Z [INFO] [API] Request method: tools/list (Simple)
+2026-02-03T10:15:01.265Z [DEBUG] [API] Simple request: {"method":"tools/list"}
+2026-02-03T10:15:01.265Z [INFO] [AUTH] Using JWT token authentication
+2026-02-03T10:15:01.265Z [DEBUG] [AUTH] Token length: 247
+2026-02-03T10:15:01.265Z [DEBUG] [API] Environment: development
+2026-02-03T10:15:01.265Z [DEBUG] [API] Base API URL: https://alcatraz-island.com
+2026-02-03T10:15:01.265Z [DEBUG] [API] Final requesting URL: https://alcatraz-island.com/?rest_route=/wp/v2/wpmcp
+2026-02-03T10:15:01.265Z [DEBUG] [API] Using Authorization header for authentication
+2026-02-03T10:15:01.265Z [INFO] [API] Sending request to WordPress API...
+2026-02-03T10:15:01.265Z [DEBUG] [API] Request URL: https://alcatraz-island.com/?rest_route=/wp/v2/wpmcp
+2026-02-03T10:15:01.265Z [DEBUG] [API] Request method: POST
+2026-02-03T10:15:01.629Z [DEBUG] [API] Response status: 404
+2026-02-03T10:15:01.630Z [ERROR] [API] API error response: {"code":"rest_no_route","message":"No route was found matching the URL and request method.","data":{"status":404}}
+2026-02-03T10:15:01.630Z [ERROR] [CLIENT] ❌ Client Error: ListTools failed after 365ms
+{
+  "error": "WordPress API error (404): {\"code\":\"rest_no_route\",\"message\":\"No route was found matching the URL and request method.\",\"data\":{\"status\":404}}"
+}
